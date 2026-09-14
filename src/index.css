@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bugs-orange: #f7941d;
+  --bugs-orange-dark: #d97d0c;
+  --bugs-black: #0a0a0a;
+  --bugs-white: #ffffff;
+  --bugs-yellow: #ffc709;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--bugs-white);
+  color: var(--bugs-black);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--bugs-yellow);
+  color: var(--bugs-black);
+}
+
+.font-display {
+  letter-spacing: -0.01em;
+}
+
+/* Lenis smooth scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
