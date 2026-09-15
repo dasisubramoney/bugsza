@@ -45,8 +45,8 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-bugs-orange shadow-[0_2px_0_0_#0A0A0A]' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
+        scrolled ? 'shadow-[0_2px_0_0_#0A0A0A]' : ''
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -104,7 +104,7 @@ export function Nav() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="overflow-hidden bg-bugs-orange lg:hidden"
+            className="overflow-hidden bg-white lg:hidden"
           >
             <div className="flex flex-col gap-1 px-4 pb-4">
               {NAV_SECTIONS.map(({ id, label }) => (

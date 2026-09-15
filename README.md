@@ -38,3 +38,10 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - Built the closing CTA/Contact band with a "Keep Rollin'" callback, placeholder WhatsApp/phone links, and an unwired placeholder contact form
 - Built the Footer with logo, repeated nav links, and placeholder social icons
 - Verified the build with `tsc -b` and `npm run build`, and smoke-tested the running site with a headless browser at 1440px and 375px (nav scroll-spy, mobile menu, FAQ accordion, zero console errors)
+
+### 2026-09-15 — Damian de Boer
+
+- Hero: added the "12V DC · Backup Power · Gates • Garages" black pill badge above the headline, framed the logo image in a black-bordered card with a hard drop-shadow, and gave the yellow CTA button a matching black border
+- Nav: switched the header from transparent-on-load/orange-on-scroll to a persistent white background
+- Problem section: changed the pain-point cards from white to orange fill to match the card style used in How It Works
+- Verified changes with a headless-browser screenshot pass against the running dev server

@@ -39,7 +39,7 @@ export function Problem() {
           {PROBLEMS.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="rounded-2xl border-4 border-bugs-black bg-bugs-white p-8 shadow-hard"
+              className="rounded-2xl border-4 border-bugs-black bg-bugs-orange p-8 shadow-hard"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-black">
                 <Icon className="h-7 w-7 text-bugs-yellow" strokeWidth={2} />

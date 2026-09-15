@@ -47,6 +47,14 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-5 inline-flex items-center rounded-full bg-bugs-black px-4 py-2 font-display text-[10px] uppercase tracking-wider text-white sm:text-xs"
+          >
+            12V DC &middot; Backup Power &middot; Gates &bull; Garages
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +82,7 @@ export function Hero() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollTo('#how-it-works')}
-              className="rounded-full bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard sm:text-base"
+              className="rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard sm:text-base"
             >
               See How It Works
             </motion.button>
@@ -94,12 +102,16 @@ export function Hero() {
             ref={glowRef}
             className="absolute h-64 w-64 rounded-full bg-bugs-yellow opacity-30 blur-3xl sm:h-80 sm:w-80"
           />
-          <img
+          <div
             ref={logoRef}
-            src={logo}
-            alt="BUGZ — 12V DC backup power for gates and garages. Keep Rollin'."
-            className="relative w-full max-w-md drop-shadow-2xl sm:max-w-lg"
-          />
+            className="relative w-full max-w-md rounded-[28px] border-[6px] border-bugs-black bg-bugs-orange p-3 shadow-hard-lg sm:max-w-lg sm:rounded-[32px] sm:border-8 sm:p-4"
+          >
+            <img
+              src={logo}
+              alt="BUGZ — 12V DC backup power for gates and garages. Keep Rollin'."
+              className="w-full rounded-2xl"
+            />
+          </div>
           <div
             ref={flashRef}
             className="pointer-events-none absolute inset-0 rounded-3xl bg-white opacity-0"
