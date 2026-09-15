@@ -5,7 +5,7 @@ const FEATURES = [
   { icon: Zap, title: '12V DC output', body: 'Matched to standard gate and garage motor requirements.' },
   { icon: Backpack, title: 'Portable, carry-to-gate design', body: 'Lightweight enough to grab and go the moment you need it.' },
   { icon: Plug, title: 'Recharges anywhere', body: 'Tops up from any standard wall socket — no special charger.' },
-  { icon: Wrench, title: 'No installation required', body: 'Nothing to wire in. Nothing for an electrician to sign off on.' },
+  { icon: Wrench, title: 'Plug-and-play after setup', body: 'A one-time professional installation, then simple plug-in use from every outage after.' },
   { icon: DoorOpen, title: 'Gate and garage motors', body: 'One unit, ready to back up either — whichever loses power first.' },
 ]
 

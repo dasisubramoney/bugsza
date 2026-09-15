@@ -6,19 +6,19 @@ import { Reveal } from '../lib/Reveal'
 const FAQS = [
   {
     q: 'Will it work with my gate motor?',
-    a: 'BUGS is built around a standard 12V DC output, which covers most residential gate and garage motors. Placeholder answer — to be confirmed against specific motor brands and models before publishing.',
+    a: 'BUGS is built around a standard 12V DC output, which covers most residential gate and garage motors. ',
   },
   {
     q: 'How long does a charge last?',
-    a: 'Placeholder answer — runtime depends on motor draw and cycle frequency. Client to confirm tested figures (e.g. number of open/close cycles per full charge).',
+    a: 'Runtime depends on type of gate, motor draw and cycle frequency. Client to confirm tested figures (e.g. number of open/close cycles per full charge).',
   },
   {
     q: 'Do I need an electrician to set it up?',
-    a: 'No installation or wiring is required — BUGS plugs straight into the motor. Placeholder answer — confirm no scenarios require professional setup.',
+    a: 'Yes — BUGS must be professionally installed once. After that initial setup, it’s a simple plug-and-play system for every outage after.',
   },
   {
     q: 'Can it power a garage door too?',
-    a: 'Placeholder answer — confirm compatibility scope across garage door motor types, not just gate motors.',
+    a: 'Yes — BUGS can power any 12V DC motor, including garage doors. Client to confirm tested figures (e.g. number of open/close cycles per full charge).',
   },
 ]
 

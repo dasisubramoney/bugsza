@@ -29,6 +29,10 @@ export function HowItWorks() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-white sm:text-4xl">
             BUGS — the Back Up Gate Solution — is the portable fix.
           </h2>
+          <p className="mt-4 rounded-xl border border-bugs-orange/40 bg-bugs-orange/10 px-5 py-4 font-body text-sm text-bugs-white/80 sm:text-base">
+            The unit must initially be professionally installed. Once
+            installation is complete, it operates as a plug-and-play system.
+          </p>
         </Reveal>
 
         <Reveal
@@ -51,7 +55,7 @@ export function HowItWorks() {
 
         <Reveal className="mt-14">
           <p className="font-display text-xl text-bugs-orange sm:text-2xl">
-            No installation. No electrician. No waiting.
+            Installed once by a professional. Plug-and-play every time after.
           </p>
         </Reveal>
       </div>
