@@ -45,3 +45,12 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - Nav: switched the header from transparent-on-load/orange-on-scroll to a persistent white background
 - Problem section: changed the pain-point cards from white to orange fill to match the card style used in How It Works
 - Verified changes with a headless-browser screenshot pass against the running dev server
+
+### 2026-09-15 — Dasendhran Subramoney
+
+- How It Works: added a callout noting the unit must initially be professionally installed and then runs plug-and-play, and updated the closing line so it no longer contradicts that (was "No installation. No electrician. No waiting.")
+- Features: renamed the "No installation required" card to "Plug-and-play after setup" to match the professional-installation requirement
+- FAQ: updated the "Do I need an electrician to set it up?" answer to match
+- Features: turned each card into a 3D flip tile — icon and title show by default, hovering (or keyboard focus) flips the card to reveal the supporting copy on the back
+- FAQ: resized the section heading so "FAQ" is the larger label and "Good questions." is the smaller line underneath
+- Verified all changes with a headless-browser screenshot pass against the running dev server, zero console errors

@@ -29,14 +29,14 @@ export function FAQ() {
     <section id="faq" className="bg-bugs-white py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="font-display text-sm uppercase tracking-widest text-bugs-orange-dark">
+          <p className="font-display text-2xl uppercase tracking-widest text-bugs-orange-dark sm:text-3xl">
             FAQ
           </p>
-          <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-black sm:text-4xl">
+          <h2 className="mt-3 font-display text-xl leading-tight text-bugs-black sm:text-2xl">
             Good questions.
           </h2>
           <p className="mt-3 font-body text-sm text-bugs-black/50">
-            Answers below are placeholder copy for the client to confirm or replace with real specs.
+            Answers for common questions about BUGS.
           </p>
         </Reveal>
 

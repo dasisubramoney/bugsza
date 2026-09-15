@@ -53,11 +53,6 @@ export function HowItWorks() {
           ))}
         </Reveal>
 
-        <Reveal className="mt-14">
-          <p className="font-display text-xl text-bugs-orange sm:text-2xl">
-            Installed once by a professional. Plug-and-play every time after.
-          </p>
-        </Reveal>
       </div>
     </section>
   )

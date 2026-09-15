@@ -29,13 +29,27 @@ export function Features() {
           {FEATURES.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="rounded-2xl bg-bugs-black p-8 transition-transform duration-300 hover:-translate-y-1"
+              tabIndex={0}
+              className="group h-64 [perspective:1200px] focus:outline-none"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-yellow">
-                <Icon className="h-7 w-7 text-bugs-black" strokeWidth={2} />
+              <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-visible:[transform:rotateY(180deg)]">
+                {/* front: icon + title */}
+                <div className="absolute inset-0 flex flex-col items-start justify-start rounded-2xl bg-bugs-black p-8 [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-yellow">
+                    <Icon className="h-7 w-7 text-bugs-black" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-6 font-display text-lg text-bugs-white">{title}</h3>
+                </div>
+
+                {/* back: icon + title + supporting copy */}
+                <div className="absolute inset-0 flex flex-col items-start justify-start rounded-2xl bg-bugs-yellow p-8 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-black">
+                    <Icon className="h-7 w-7 text-bugs-yellow" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-6 font-display text-lg text-bugs-black">{title}</h3>
+                  <p className="mt-3 font-body text-bugs-black/80">{body}</p>
+                </div>
               </div>
-              <h3 className="mt-6 font-display text-lg text-bugs-white">{title}</h3>
-              <p className="mt-3 font-body text-bugs-white/70">{body}</p>
             </div>
           ))}
         </Reveal>
