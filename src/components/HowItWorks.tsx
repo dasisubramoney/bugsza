@@ -40,15 +40,15 @@ export function HowItWorks() {
           stagger={0.18}
         >
           {STEPS.map(({ number, title, body }) => (
-            <div
-              key={number}
-              className="rounded-2xl border-2 border-bugs-orange bg-bugs-black p-8"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bugs-yellow font-display text-lg text-bugs-black">
-                {number}
-              </span>
-              <h3 className="mt-6 font-display text-xl text-bugs-white">{title}</h3>
-              <p className="mt-3 font-body text-bugs-white/70">{body}</p>
+            <div key={number} className="group relative h-full">
+              <div className="absolute -inset-1 rounded-2xl bg-bugs-orange opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-60" />
+              <div className="relative flex h-full flex-col rounded-2xl border-2 border-bugs-orange bg-bugs-black p-8 transition-transform duration-300 group-hover:-translate-y-1">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bugs-yellow font-display text-lg text-bugs-black">
+                  {number}
+                </span>
+                <h3 className="mt-6 font-display text-xl text-bugs-white">{title}</h3>
+                <p className="mt-3 font-body text-bugs-white/70">{body}</p>
+              </div>
             </div>
           ))}
         </Reveal>

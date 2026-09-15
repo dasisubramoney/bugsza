@@ -54,3 +54,11 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - Features: turned each card into a 3D flip tile — icon and title show by default, hovering (or keyboard focus) flips the card to reveal the supporting copy on the back
 - FAQ: resized the section heading so "FAQ" is the larger label and "Good questions." is the smaller line underneath
 - Verified all changes with a headless-browser screenshot pass against the running dev server, zero console errors
+
+### 2026-09-15 — Damian de Boer (2)
+
+- Problem, How It Works, and Contact cards: added a hover state — a soft blurred color glow behind the card plus a slight lift — matched per-section (yellow glow on Problem/Features, orange on How It Works, black on Contact)
+- Problem and How It Works cards: fixed uneven card heights within a row (cards now stretch to match the tallest sibling instead of hugging their own content)
+- Problem cards: tuned the glow to be more prominent while keeping it fully contained within its own card (no bleed onto neighboring cards)
+- Contact section: fixed the glow on the "Talk to us directly" card incorrectly stretching to match the taller "Or send a message" card's height, caused by the grid's default row-stretch behavior
+- Features cards: reverted the glow effect (superseded by the 3D flip-card treatment already on `main`), keeping only the hover lift

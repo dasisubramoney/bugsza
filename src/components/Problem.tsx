@@ -37,15 +37,15 @@ export function Problem() {
           stagger={0.15}
         >
           {PROBLEMS.map(({ icon: Icon, title, body }) => (
-            <div
-              key={title}
-              className="rounded-2xl border-4 border-bugs-black bg-bugs-orange p-8 shadow-hard"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-black">
-                <Icon className="h-7 w-7 text-bugs-yellow" strokeWidth={2} />
+            <div key={title} className="group relative h-full">
+              <div className="absolute -inset-2 rounded-2xl bg-bugs-yellow opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-90" />
+              <div className="relative flex h-full flex-col rounded-2xl border-4 border-bugs-black bg-bugs-orange p-8 shadow-hard transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-bugs-black">
+                  <Icon className="h-7 w-7 text-bugs-yellow" strokeWidth={2} />
+                </div>
+                <h3 className="mt-6 font-display text-xl text-bugs-black">{title}</h3>
+                <p className="mt-3 font-body text-bugs-black/70">{body}</p>
               </div>
-              <h3 className="mt-6 font-display text-xl text-bugs-black">{title}</h3>
-              <p className="mt-3 font-body text-bugs-black/70">{body}</p>
             </div>
           ))}
         </Reveal>
