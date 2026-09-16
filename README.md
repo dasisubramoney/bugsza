@@ -62,3 +62,12 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - Problem cards: tuned the glow to be more prominent while keeping it fully contained within its own card (no bleed onto neighboring cards)
 - Contact section: fixed the glow on the "Talk to us directly" card incorrectly stretching to match the taller "Or send a message" card's height, caused by the grid's default row-stretch behavior
 - Features cards: reverted the glow effect (superseded by the 3D flip-card treatment already on `main`), keeping only the hover lift
+
+### 2026-09-16 — Dasendhran Subramoney
+
+- Hero: prototyped a torn-paper "product reveal" (moved the logo card up, added the real product photo behind a jagged/curled tear) through several iterations per feedback, then fully reverted it back to the original single bordered logo card once product-image changes were no longer wanted
+- How It Works: added the callout fee (R650/hour, final cost varies by distance/site), noted BUGS supplies an accredited installer, and added the service area (Greater Johannesburg) to the installation notice
+- FAQ: added a "What warranty comes with it?" question (battery warranty is carried by the battery brand), and updated the installer answer to mention BUGS supplies the accredited installer
+- FAQ and Features: updated compatibility copy site-wide to state BUGS currently supports Centurion motors only (was previously implying any/most motor brands)
+- Contact form: added a property-type selector (Residential house / Complex / Commercial building) with conditional follow-up questions per type — motor voltage and brand for all types, plus unit count and gate access (guard vs. remote) for complexes, and school/business type and gate access for commercial buildings
+- Verified all changes with `tsc -b` and headless-browser screenshot passes against the running dev server, zero console errors

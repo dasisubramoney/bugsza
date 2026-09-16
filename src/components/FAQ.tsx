@@ -6,7 +6,7 @@ import { Reveal } from '../lib/Reveal'
 const FAQS = [
   {
     q: 'Will it work with my gate motor?',
-    a: 'BUGS is built around a standard 12V DC output, which covers most residential gate and garage motors. ',
+    a: 'Currently, BUGS works with Centurion motors only. Support for other motor brands is planned — check back or get in touch to confirm compatibility with your setup.',
   },
   {
     q: 'How long does a charge last?',
@@ -14,11 +14,15 @@ const FAQS = [
   },
   {
     q: 'Do I need an electrician to set it up?',
-    a: 'Yes — BUGS must be professionally installed once. After that initial setup, it’s a simple plug-and-play system for every outage after.',
+    a: 'Yes — BUGS must be professionally installed once, and BUGS will supply an accredited installer for that. After that initial setup, it’s a simple plug-and-play system for every outage after.',
   },
   {
     q: 'Can it power a garage door too?',
-    a: 'Yes — BUGS can power any 12V DC motor, including garage doors. Client to confirm tested figures (e.g. number of open/close cycles per full charge).',
+    a: 'Yes, on Centurion garage motors — BUGS currently supports Centurion motors only. Client to confirm tested figures (e.g. number of open/close cycles per full charge).',
+  },
+  {
+    q: 'What warranty comes with it?',
+    a: 'The warranty period depends on the battery used, and is carried by the battery brand — the manufacturer’s warranty applies.',
   },
 ]
 

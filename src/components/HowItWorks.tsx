@@ -32,6 +32,14 @@ export function HowItWorks() {
           <p className="mt-4 rounded-xl border border-bugs-orange/40 bg-bugs-orange/10 px-5 py-4 font-body text-sm text-bugs-white/80 sm:text-base">
             The unit must initially be professionally installed. Once
             installation is complete, it operates as a plug-and-play system.
+            BUGS will supply an accredited installer.
+            <span className="mt-2 block text-bugs-white/60">
+              Service area: Greater Johannesburg.
+            </span>
+            <span className="mt-2 block text-bugs-white/60">
+              Callout fee: R650/hour, based on your location. Final cost may
+              vary depending on distance and site conditions.
+            </span>
           </p>
         </Reveal>
 
