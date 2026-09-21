@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { useSmoothScroll } from '../lib/SmoothScroll'
+import { PartnersRow } from './PartnersRow'
 import logo from '../assets/Bugz_co_za_Updated_Logo.png'
 
 export function Hero() {
@@ -117,6 +118,8 @@ export function Hero() {
             className="pointer-events-none absolute inset-0 rounded-3xl bg-white opacity-0"
           />
         </div>
+
+        <PartnersRow />
       </div>
     </section>
   )

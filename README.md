@@ -71,3 +71,14 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - FAQ and Features: updated compatibility copy site-wide to state BUGS currently supports Centurion motors only (was previously implying any/most motor brands)
 - Contact form: added a property-type selector (Residential house / Complex / Commercial building) with conditional follow-up questions per type — motor voltage and brand for all types, plus unit count and gate access (guard vs. remote) for complexes, and school/business type and gate access for commercial buildings
 - Verified all changes with `tsc -b` and headless-browser screenshot passes against the running dev server, zero console errors
+
+### 2026-09-21 — Dasendhran Subramoney
+
+- Added client-side routing (`react-router-dom`) and split the site into `src/pages/` (`HomePage`, `GoingSmartPage`, `InnovationCentrePage`), with a scroll-to-top on route change
+- Hero: added an "Our Partners" row below the BUGS graphic, in the same section, linking out to two new partner pages
+- Built the Going Smart Energy Solutions page (`/going-smart`) — navy/green branding sampled from their logo, Smart Tech Audit / Practical Solutions content, tel-link to Craig
+- Built The Innovation Centre page (`/innovation-centre`) — neutral palette with BUGS orange used sparingly as an accent, the 5-point "what it provides" feature grid, on-site resources list, and a CTA (reusing Craig's number, flagged as an assumption pending client confirmation)
+- Neither partner page was added to the main nav, per instructions — reachable only via the homepage partner cards
+- Enlarged and restyled the partner cards on the homepage (bigger footprint, thicker border, "Partner" badge, "Visit site" hover hint) to match the site's existing hover-glow/lift pattern and make them more clickable
+- Partner cards now open their page in a new tab (`target="_blank"`, `rel="noopener noreferrer"`) instead of navigating away from the homepage
+- Verified with `tsc -b`, a production `npm run build`, and headless-browser passes — including a direct deep-link test to `/going-smart` and a same-context new-tab test confirming both partner links open a real second tab — zero console errors
