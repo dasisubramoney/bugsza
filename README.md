@@ -82,3 +82,14 @@ Single page composed in `src/App.tsx` from section components in `src/components
 - Enlarged and restyled the partner cards on the homepage (bigger footprint, thicker border, "Partner" badge, "Visit site" hover hint) to match the site's existing hover-glow/lift pattern and make them more clickable
 - Partner cards now open their page in a new tab (`target="_blank"`, `rel="noopener noreferrer"`) instead of navigating away from the homepage
 - Verified with `tsc -b`, a production `npm run build`, and headless-browser passes — including a direct deep-link test to `/going-smart` and a same-context new-tab test confirming both partner links open a real second tab — zero console errors
+
+### 2026-09-21 — Dasendhran Subramoney (2)
+
+- Wired the "Or send a message" contact form up to Netlify Forms: added a static hidden shadow form in `index.html` (required for Netlify's build-time form detection in a Vite SPA) covering every field in the real form, including the motor-voltage/brand/units/access/building-type fields added earlier — not just the core name/phone/property-type/message set — so no submitted data is silently dropped
+- Contact form fields are now controlled React state (previously uncontrolled) so they can be validated and posted programmatically
+- Submit now does a real `fetch('/', …)` POST with URL-encoded form data; shows "Sending…" and disables the button in flight, a success state that resets the form, and a new inline error banner on failure
+- Added an off-screen (not `display:none`) honeypot field bound to state, checked client-side before submit and backed by Netlify's own server-side honeypot check
+- Added inline validation (required name/phone, a South Africa-friendly phone format check, required property type) that blocks submission before any network call
+- Verified with `tsc -b`, a production build (confirmed the shadow form survives the Vite build unchanged), and headless-browser tests of the validation, honeypot-blocking, and submit/error flows against the dev server — flagged the Netlify dashboard setup (notifications, confirming the form registers, Akismet) as manual post-deploy steps, and noted that confirming a real submission lands in the Netlify dashboard needs the live deploy
+
+

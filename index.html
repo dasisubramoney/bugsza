@@ -12,6 +12,29 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Static shadow form so Netlify's build-time form parser can detect and
+      register the "contact" form. This markup is never rendered/shown to
+      users — the real, visible form lives in src/components/CTAContact.tsx
+      and submits to this same form name via a manual fetch() POST. Field
+      `name` attributes here must match the real form's field names exactly.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="text" name="phone" />
+      <input type="text" name="property-type" />
+      <input type="text" name="motor-voltage" />
+      <input type="text" name="motor-brand" />
+      <input type="text" name="complex-units" />
+      <input type="text" name="access-type" />
+      <input type="text" name="building-type" />
+      <input type="text" name="business-type" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
