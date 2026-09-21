@@ -1,0 +1,38 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[edge_functions]]
+  path = "/*"
+  function = "noindex-preview"
+
+# Route-specific prerendered files (scripts/prerender.mjs writes one static
+# index.html per route in src/lib/routes.ts). Netlify's own static-asset
+# resolution should already serve dist/going-smart/index.html for a request
+# to /going-smart with no trailing slash ("pretty URL" matching), but that
+# behavior isn't verifiable from this dev environment — these explicit
+# rules remove the ambiguity so crawlers hitting the no-slash path (which
+# is what every link on the site uses) reliably get that route's own
+# content instead of falling through to the homepage. Update this list
+# alongside src/lib/routes.ts when adding a route.
+[[redirects]]
+  from = "/going-smart"
+  to = "/going-smart/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/innovation-centre"
+  to = "/innovation-centre/index.html"
+  status = 200
+
+# SPA fallback: any other unknown path (e.g. a deep link to #faq shared
+# without the hash) should still serve the app shell rather than a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

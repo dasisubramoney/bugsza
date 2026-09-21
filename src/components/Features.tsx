@@ -2,7 +2,7 @@ import { Zap, Backpack, Plug, Wrench, DoorOpen } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 
 const FEATURES = [
-  { icon: Zap, title: '12V DC output', body: 'Matched to Centurion motor requirements — currently the only brand BUGS supports.' },
+  { icon: Zap, title: '12V/24V DC output', body: 'Matched to Centurion motor requirements — currently the only brand BUGS supports.' },
   { icon: Backpack, title: 'Portable, carry-to-gate design', body: 'Lightweight enough to grab and go the moment you need it.' },
   { icon: Plug, title: 'Recharges anywhere', body: 'Tops up from any standard wall socket — no special charger.' },
   { icon: Wrench, title: 'Plug-and-play after setup', body: 'A one-time professional installation, then simple plug-in use from every outage after.' },
@@ -23,14 +23,14 @@ export function Features() {
         </Reveal>
 
         <Reveal
-          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 flex flex-wrap justify-center gap-6"
           stagger={0.12}
         >
           {FEATURES.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
               tabIndex={0}
-              className="group h-64 [perspective:1200px] focus:outline-none"
+              className="group h-64 w-full [perspective:1200px] focus:outline-none sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
             >
               <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-visible:[transform:rotateY(180deg)]">
                 {/* front: icon + title */}

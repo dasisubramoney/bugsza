@@ -1,7 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, Phone, AlertCircle } from 'lucide-react'
+import { AlertCircle, Clock, Phone } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
+import { WhatsAppIcon } from './icons'
+import { HOURS_DISPLAY, PHONE_E164, WHATSAPP_URL } from '../lib/businessInfo'
 
 type PropertyType = 'residential' | 'complex' | 'commercial'
 type Voltage = '12V' | '24V'
@@ -189,28 +191,32 @@ export function CTAContact() {
             <div className="relative flex flex-col gap-4 rounded-2xl border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 group-hover:-translate-y-1">
               <h3 className="font-display text-xl text-bugs-black">Talk to us directly</h3>
               <p className="font-body text-sm text-bugs-black/60">
-                Placeholder contact details — swap in the real WhatsApp number and phone line.
+                Message us on WhatsApp or give us a call — we're happy to help.
               </p>
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                href="https://wa.me/27000000000"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center gap-2 rounded-full bg-bugs-black px-6 py-4 font-display text-sm text-bugs-white"
               >
-                <MessageCircle size={18} />
+                <WhatsAppIcon className="h-[18px] w-[18px]" />
                 Chat on WhatsApp
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                href="tel:+27000000000"
+                href={`tel:${PHONE_E164}`}
                 className="flex items-center justify-center gap-2 rounded-full border-2 border-bugs-black px-6 py-4 font-display text-sm text-bugs-black"
               >
                 <Phone size={18} />
                 Call Us
               </motion.a>
+              <p className="flex items-center justify-center gap-2 font-body text-xs text-bugs-black/50">
+                <Clock size={14} />
+                {HOURS_DISPLAY}
+              </p>
             </div>
           </div>
 

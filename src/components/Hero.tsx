@@ -54,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-5 inline-flex items-center rounded-full bg-bugs-black px-4 py-2 font-display text-[10px] uppercase tracking-wider text-white sm:text-xs"
           >
-            12V DC &middot; Backup Power &middot; Gates &bull; Garages
+            12V/24V DC &middot; Backup Power &middot; Gates &bull; Garages
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
@@ -109,7 +109,7 @@ export function Hero() {
           >
             <img
               src={logo}
-              alt="BUGZ — 12V DC backup power for gates and garages. Keep Rollin'."
+              alt="BUGZ — portable backup power for gates and garages. Keep Rollin'."
               className="w-full rounded-2xl"
             />
           </div>

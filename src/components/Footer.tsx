@@ -1,12 +1,13 @@
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { NAV_SECTIONS } from '../lib/sections'
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons'
+import { WHATSAPP_URL } from '../lib/businessInfo'
 import logo from '../assets/Bugz_co_za_Updated_Logo.png'
 
 const SOCIALS = [
-  { icon: FacebookIcon, label: 'Facebook', href: '#' },
-  { icon: InstagramIcon, label: 'Instagram', href: '#' },
-  { icon: WhatsAppIcon, label: 'WhatsApp', href: '#' },
+  { icon: FacebookIcon, label: 'Facebook', href: '#', placeholder: true },
+  { icon: InstagramIcon, label: 'Instagram', href: '#', placeholder: true },
+  { icon: WhatsAppIcon, label: 'WhatsApp', href: WHATSAPP_URL, placeholder: false },
 ]
 
 export function Footer() {
@@ -33,12 +34,14 @@ export function Footer() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {SOCIALS.map(({ icon: Icon, label, href }) => (
+            {SOCIALS.map(({ icon: Icon, label, href, placeholder }) => (
               <a
                 key={label}
                 href={href}
+                target={placeholder ? undefined : '_blank'}
+                rel={placeholder ? undefined : 'noreferrer'}
                 aria-label={label}
-                title={`${label} — placeholder link`}
+                title={placeholder ? `${label} — placeholder link` : label}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-bugs-white/20 text-bugs-white/70 transition-colors hover:border-bugs-yellow hover:text-bugs-yellow"
               >
                 <Icon className="h-4 w-4" />

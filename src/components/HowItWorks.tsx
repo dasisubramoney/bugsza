@@ -1,4 +1,24 @@
+import { Wrench, MapPin, Banknote } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
+import { CALLOUT_FEE_DISPLAY, SERVICE_AREA } from '../lib/businessInfo'
+
+const INSTALL_INFO = [
+  {
+    icon: Wrench,
+    label: 'Professional install',
+    detail: 'One-time setup — BUGS supplies an accredited installer.',
+  },
+  {
+    icon: MapPin,
+    label: 'Service area',
+    detail: `${SERVICE_AREA}.`,
+  },
+  {
+    icon: Banknote,
+    label: 'Callout fee',
+    detail: CALLOUT_FEE_DISPLAY,
+  },
+]
 
 const STEPS = [
   {
@@ -29,18 +49,24 @@ export function HowItWorks() {
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-white sm:text-4xl">
             BUGS — the Back Up Gate Solution — is the portable fix.
           </h2>
-          <p className="mt-4 rounded-xl border border-bugs-orange/40 bg-bugs-orange/10 px-5 py-4 font-body text-sm text-bugs-white/80 sm:text-base">
-            The unit must initially be professionally installed. Once
-            installation is complete, it operates as a plug-and-play system.
-            BUGS will supply an accredited installer.
-            <span className="mt-2 block text-bugs-white/60">
-              Service area: Greater Johannesburg.
-            </span>
-            <span className="mt-2 block text-bugs-white/60">
-              Callout fee: R650/hour, based on your location. Final cost may
-              vary depending on distance and site conditions.
-            </span>
-          </p>
+        </Reveal>
+
+        <Reveal
+          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
+          stagger={0.1}
+        >
+          {INSTALL_INFO.map(({ icon: Icon, label, detail }) => (
+            <div
+              key={label}
+              className="flex items-start gap-3 rounded-xl border border-bugs-orange/30 bg-bugs-orange/10 px-5 py-4"
+            >
+              <Icon className="h-5 w-5 flex-shrink-0 text-bugs-orange" strokeWidth={2} />
+              <div>
+                <p className="font-display text-sm text-bugs-white">{label}</p>
+                <p className="mt-1 font-body text-sm text-bugs-white/60">{detail}</p>
+              </div>
+            </div>
+          ))}
         </Reveal>
 
         <Reveal
