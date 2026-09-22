@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { NAV_SECTIONS } from '../lib/sections'
-import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons'
+import { WhatsAppIcon } from './icons'
 import { WHATSAPP_URL } from '../lib/businessInfo'
 import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
 
 const SOCIALS = [
-  { icon: FacebookIcon, label: 'Facebook', href: '#', placeholder: true },
-  { icon: InstagramIcon, label: 'Instagram', href: '#', placeholder: true },
   { icon: WhatsAppIcon, label: 'WhatsApp', href: WHATSAPP_URL, placeholder: false },
 ]
 

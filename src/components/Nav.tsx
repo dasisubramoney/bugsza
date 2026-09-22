@@ -63,9 +63,10 @@ export function Nav() {
             <button
               key={id}
               onClick={() => handleNavClick(id)}
-              className="relative px-4 py-2 font-body text-sm font-semibold text-bugs-black"
+              className="group relative px-4 py-2 font-body text-sm font-semibold text-bugs-black"
             >
               {label}
+              <span className="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 bg-bugs-black transition-transform duration-300 ease-out group-hover:scale-x-100" />
               {active === id && (
                 <motion.span
                   layoutId="nav-underline"
