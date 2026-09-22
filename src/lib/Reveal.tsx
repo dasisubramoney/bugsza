@@ -29,6 +29,14 @@ export function Reveal({
     if (!el) return
     const targets = el.children.length > 0 ? Array.from(el.children) : [el]
 
+    // Respect the OS-level motion preference: skip the animation and show
+    // final state immediately, rather than force scroll-triggered movement
+    // on people who've asked for less of it.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set(targets, { opacity: 1, y: 0 })
+      return
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         targets,

@@ -7,7 +7,8 @@ import {
   PRICE_DISPLAY,
   PRICE_NOTE,
 } from '../lib/businessInfo'
-import productPhoto from '../assets/Bugs_product.jpeg'
+import productPhotoWebp from '../assets/Bugs_product.webp'
+import productPhotoJpeg from '../assets/Bugs_product.resized.jpeg'
 
 export function Pricing() {
   const { scrollTo } = useSmoothScroll()
@@ -28,11 +29,15 @@ export function Pricing() {
           <div className="group relative mx-auto w-full max-w-md">
             <div className="absolute -inset-2 rounded-2xl bg-bugs-yellow opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70" />
             <div className="relative overflow-hidden rounded-2xl border-4 border-bugs-yellow shadow-[8px_8px_0_0_#FFC709] transition-transform duration-300 group-hover:-translate-y-1">
-              <img
-                src={productPhoto}
-                alt="The BUGS unit — a 12V/24V DC backup power box for gates and garages"
-                className="w-full"
-              />
+              <picture>
+                <source srcSet={productPhotoWebp} type="image/webp" />
+                <img
+                  src={productPhotoJpeg}
+                  alt="The BUGS unit — a 12V/24V DC backup power box for gates and garages"
+                  className="w-full"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </div>
 
@@ -57,7 +62,7 @@ export function Pricing() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollTo('#contact')}
-                className="mt-8 w-full rounded-full bg-bugs-black px-8 py-4 font-display text-sm text-bugs-white"
+                className="mt-8 w-full rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard"
               >
                 Get Yours
               </motion.button>

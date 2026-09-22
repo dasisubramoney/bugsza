@@ -1,9 +1,8 @@
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import type { Plugin } from 'vite'
+import { SITE_URL } from '../src/lib/businessInfo.ts'
 import { ROUTES } from '../src/lib/routes.ts'
-
-const SITE_URL = 'https://bugsza.co.za'
 
 /**
  * Writes sitemap.xml into the build output on every `vite build`, so it's
@@ -20,10 +19,14 @@ export function sitemapPlugin(): Plugin {
       const urls = ROUTES.map((path) => {
         const loc = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
         const priority = path === '/' ? '1.0' : '0.7'
+        // Homepage copy changes often; legal pages rarely do; everything
+        // else is a reasonable middle ground.
+        const changefreq =
+          path === '/' ? 'weekly' : path === '/privacy' || path === '/terms' ? 'yearly' : 'monthly'
         return `  <url>
     <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`
       }).join('\n')

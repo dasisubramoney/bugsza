@@ -25,12 +25,24 @@
   to = "/innovation-centre/index.html"
   status = 200
 
-# SPA fallback: any other unknown path (e.g. a deep link to #faq shared
-# without the hash) should still serve the app shell rather than a 404.
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/index.html"
+  status = 200
+
+# SPA fallback for any other unknown path: serve the app shell (so React
+# Router renders the on-brand NotFoundPage client-side) but with a real 404
+# status, so crawlers correctly treat it as a missing page rather than a
+# duplicate of the homepage.
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
 
 [[headers]]
   for = "/assets/*"

@@ -24,7 +24,7 @@ export function Problem() {
     <section className="bg-bugs-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-display text-sm uppercase tracking-widest text-bugs-orange-dark">
+          <p className="font-display text-sm uppercase tracking-widest text-bugs-orange-text">
             The Problem
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-black sm:text-4xl">

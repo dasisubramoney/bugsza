@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { NAV_SECTIONS } from '../lib/sections'
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons'
 import { WHATSAPP_URL } from '../lib/businessInfo'
-import logo from '../assets/Bugz_co_za_Updated_Logo.png'
+import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
 
 const SOCIALS = [
   { icon: FacebookIcon, label: 'Facebook', href: '#', placeholder: true },
@@ -18,7 +19,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
           <button onClick={() => scrollTo('#top')} aria-label="Back to top">
-            <img src={logo} alt="BUGZ — Keep Rollin'" className="h-14 w-auto" />
+            <img src={logo} alt="BUGZ — Keep Rollin'" loading="lazy" className="h-14 w-auto" />
           </button>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
@@ -50,10 +51,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-bugs-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-bugs-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between sm:pr-20">
           <p className="font-body text-xs text-bugs-white/40">
             © {new Date().getFullYear()} BUGZ. Back Up Gate Solution. All rights reserved.
           </p>
+          <div className="flex items-center gap-4 font-body text-xs text-bugs-white/40">
+            <Link to="/privacy" className="hover:text-bugs-white">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-bugs-white">
+              Terms &amp; Conditions
+            </Link>
+          </div>
           <p className="font-display text-xs text-bugs-orange">Keep Rollin&rsquo;</p>
         </div>
       </div>

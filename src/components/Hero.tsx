@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { PartnersRow } from './PartnersRow'
-import logo from '../assets/Bugz_co_za_Updated_Logo.png'
+import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
 
 export function Hero() {
   const { scrollTo } = useSmoothScroll()
@@ -12,6 +12,17 @@ export function Hero() {
   const glowRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
+    // Respect the OS-level motion preference: show the final state straight
+    // away and skip both the entrance flourish and the infinite glow pulse
+    // (an endlessly-looping animation is exactly what this preference is
+    // meant to suppress, and it's wasted work on a device that's asked not
+    // to bother).
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set(logoRef.current, { x: 0, opacity: 1, rotate: 0 })
+      gsap.set(glowRef.current, { opacity: 0.55 })
+      return
+    }
+
     const tl = gsap.timeline({ delay: 0.3 })
     tl.fromTo(
       logoRef.current,
@@ -82,18 +93,18 @@ export function Hero() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => scrollTo('#how-it-works')}
+              onClick={() => scrollTo('#contact')}
               className="rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard sm:text-base"
             >
-              See How It Works
+              Get Yours
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.04, backgroundColor: '#0A0A0A', color: '#FFFFFF' }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => scrollTo('#contact')}
+              onClick={() => scrollTo('#how-it-works')}
               className="rounded-full border-2 border-bugs-black px-8 py-4 font-display text-sm text-bugs-black sm:text-base"
             >
-              Get Yours
+              See How It Works
             </motion.button>
           </motion.div>
         </div>

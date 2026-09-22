@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { NAV_SECTIONS, type SectionId } from '../lib/sections'
-import logo from '../assets/Bugz_co_za_Updated_Logo.png'
+import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
 
 export function Nav() {
   const { scrollTo } = useSmoothScroll()

@@ -14,6 +14,7 @@ import {
   PenTool,
   Percent,
 } from 'lucide-react'
+import { useDocumentMeta } from '../lib/useDocumentMeta'
 
 const FEATURES = [
   {
@@ -52,6 +53,13 @@ const RESOURCES = [
 ]
 
 export function InnovationCentrePage() {
+  useDocumentMeta({
+    title: 'The Innovation Centre — Where Ideas Become Real | BUGS Partner',
+    description:
+      'A hub for prototyping, collaboration, and commercialisation — helping local entrepreneurs turn ideas into market-ready products.',
+    path: '/innovation-centre',
+  })
+
   return (
     <div className="min-h-screen bg-[#FAFAF8] text-bugs-black">
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8">
@@ -73,7 +81,7 @@ export function InnovationCentrePage() {
         transition={{ duration: 0.6 }}
         className="mx-auto max-w-3xl px-4 pb-16 pt-8 text-center sm:px-6 lg:px-8"
       >
-        <span className="inline-flex items-center rounded-full bg-bugs-orange/10 px-4 py-1.5 font-display text-xs uppercase tracking-wider text-bugs-orange-dark">
+        <span className="inline-flex items-center rounded-full bg-bugs-orange/10 px-4 py-1.5 font-display text-xs uppercase tracking-wider text-bugs-orange-text">
           The Dream
         </span>
         <h1 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">

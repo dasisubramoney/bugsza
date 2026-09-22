@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Phone, Search, Lightbulb } from 'lucide-react'
-import goingSmartLogo from '../assets/Going_Smart.png'
+import { useDocumentMeta } from '../lib/useDocumentMeta'
+import goingSmartLogo from '../assets/Going_Smart.webp'
 
 const NAVY = '#131B2D'
 const GREEN = '#6FA84A'
 
 export function GoingSmartPage() {
+  useDocumentMeta({
+    title: 'Going Smart Energy Solutions — Smart Tech Audits | BUGS Partner',
+    description:
+      'Going Smart Energy Solutions runs a Smart Tech Audit to show exactly why your electricity bill is running high, then gives you practical solutions to bring it down.',
+    path: '/going-smart',
+  })
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: NAVY }}>
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8">

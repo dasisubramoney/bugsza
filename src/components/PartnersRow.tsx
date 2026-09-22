@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ExternalLink, Lightbulb } from 'lucide-react'
-import goingSmartLogo from '../assets/Going_Smart.png'
+import goingSmartLogo from '../assets/Going_Smart.webp'
 
 const cardClass =
   'group relative flex h-36 w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-4 border-bugs-black bg-white p-6 shadow-hard-lg transition-transform duration-300 sm:h-40 sm:w-80'
@@ -16,7 +16,7 @@ function PartnerBadge() {
 
 function VisitHint() {
   return (
-    <span className="flex items-center gap-1.5 font-display text-xs text-bugs-black/60 transition-colors duration-300 group-hover:text-bugs-orange-dark">
+    <span className="flex items-center gap-1.5 font-display text-xs text-bugs-black/60 transition-colors duration-300 group-hover:text-bugs-orange-text">
       Visit site
       <ExternalLink
         size={13}
@@ -55,6 +55,7 @@ export function PartnersRow() {
             <img
               src={goingSmartLogo}
               alt="Going Smart Energy Solutions"
+              loading="lazy"
               className="h-16 w-full max-w-[220px] rounded-lg object-contain"
             />
             <VisitHint />
