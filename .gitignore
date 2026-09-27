@@ -26,3 +26,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Netlify folder, and the Deno lockfile its CLI generates locally
+# while bundling the edge function (Netlify's own cloud build regenerates
+# this itself; a machine-specific snapshot here would only go stale)
+.netlify
+deno.lock
