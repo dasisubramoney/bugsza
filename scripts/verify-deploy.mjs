@@ -59,6 +59,7 @@ const section = (title) => console.log(`\n${title}`)
 // rest rather than let a stale deploy produce misleadingly green output.
 // ---------------------------------------------------------------------
 section('0. Commit verification (deploy freshness)')
+const COMMIT_HASH_RE = /^[0-9a-f]{40}$/
 const { stdout: localCommitRaw } = await execFileAsync('git', ['rev-parse', 'HEAD'])
 const localCommit = localCommitRaw.trim()
 let deployIsFresh = false
@@ -71,9 +72,16 @@ try {
     console.log(`    ${localCommit}`)
     deployIsFresh = true
   } else {
+    // If build-commit.txt 404s, Netlify's SPA-fallback redirect serves the
+    // full homepage HTML instead — dumping that raw would bury the one
+    // fact that matters, so summarize anything that isn't a plain commit
+    // hash rather than printing it verbatim.
+    const deployedDisplay = COMMIT_HASH_RE.test(deployedCommit)
+      ? deployedCommit
+      : `(not a commit hash — ${deployedCommit.length} bytes starting with ${JSON.stringify(deployedCommit.slice(0, 40))}${deployedCommit.length > 40 ? '…' : ''}; likely the SPA-fallback page, meaning build-commit.txt doesn't exist on this deploy)`
     fail(`Deployed commit matches local HEAD`)
-    console.log(`    deployed (${buildCommitUrl}, HTTP ${res.status}): ${deployedCommit || '(empty)'}`)
-    console.log(`    local (git rev-parse HEAD):                       ${localCommit}`)
+    console.log(`    deployed (${buildCommitUrl}, HTTP ${res.status}): ${deployedDisplay}`)
+    console.log(`    local    (git rev-parse HEAD):                   ${localCommit}`)
   }
 } catch (err) {
   fail('Fetch build-commit.txt', err.message)
