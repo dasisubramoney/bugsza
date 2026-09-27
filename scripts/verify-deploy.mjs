@@ -11,6 +11,9 @@
 // is nothing at that domain yet).
 //
 // Covers:
+//   0. Commit verification: dist/build-commit.txt on the live site matches
+//      `git rev-parse HEAD` — runs first and skips every other check on
+//      mismatch, since a stale deploy makes the rest meaningless
 //   1. Raw HTML (no JS execution) contains real page content
 //   2. /robots.txt, /sitemap.xml, /llms.txt all return 200 with expected content
 //   3. Lighthouse mobile performance + SEO scores (3-1, 3-2), plus the
@@ -47,6 +50,43 @@ const fail = (label, detail) => {
   failures++
 }
 const section = (title) => console.log(`\n${title}`)
+
+// ---------------------------------------------------------------------
+// 0. Commit verification — must run first. Every other check reads
+// whatever the live site currently serves; if that's a stale deploy, a
+// pass on those checks just means the *previous* build was fine, which
+// isn't what's being verified. Fail loudly with both values and skip the
+// rest rather than let a stale deploy produce misleadingly green output.
+// ---------------------------------------------------------------------
+section('0. Commit verification (deploy freshness)')
+const { stdout: localCommitRaw } = await execFileAsync('git', ['rev-parse', 'HEAD'])
+const localCommit = localCommitRaw.trim()
+let deployIsFresh = false
+try {
+  const buildCommitUrl = new URL('/build-commit.txt', netlifyUrl).toString()
+  const res = await fetch(buildCommitUrl)
+  const deployedCommit = (await res.text()).trim()
+  if (res.ok && deployedCommit === localCommit) {
+    ok(`Deployed commit matches local HEAD`)
+    console.log(`    ${localCommit}`)
+    deployIsFresh = true
+  } else {
+    fail(`Deployed commit matches local HEAD`)
+    console.log(`    deployed (${buildCommitUrl}, HTTP ${res.status}): ${deployedCommit || '(empty)'}`)
+    console.log(`    local (git rev-parse HEAD):                       ${localCommit}`)
+  }
+} catch (err) {
+  fail('Fetch build-commit.txt', err.message)
+  console.log(`    local (git rev-parse HEAD): ${localCommit}`)
+}
+
+if (!deployIsFresh) {
+  console.log(
+    `\n\x1b[31mStale or unverifiable deploy — skipping all remaining checks. Their results would be meaningless against a build that doesn't match what's actually deployed.\x1b[0m`,
+  )
+  console.log(`\n\x1b[31m${failures} check(s) failed.\x1b[0m`)
+  process.exit(1)
+}
 
 // ---------------------------------------------------------------------
 // 1. Raw HTML contains real, route-specific content without executing JS

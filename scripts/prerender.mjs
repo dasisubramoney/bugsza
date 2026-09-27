@@ -18,6 +18,7 @@
 // catch-all in netlify.toml only kicks in for paths that don't exist here.
 import { chromium } from 'playwright'
 import { preview } from 'vite'
+import { execFileSync } from 'node:child_process'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { ROUTES as APP_ROUTES } from '../src/lib/routes.ts'
@@ -30,6 +31,16 @@ const ROUTES = APP_ROUTES.map((path) => ({
 }))
 
 async function main() {
+  // Written here (after `vite build`, which empties dist/ before this
+  // script runs) rather than as an earlier build step, so it survives.
+  // verify-deploy.mjs's commit-verification check compares this against
+  // `git rev-parse HEAD` to catch a stale deploy before trusting anything
+  // else it finds on the site.
+  const commitHash = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf-8' }).trim()
+  mkdirSync('dist', { recursive: true })
+  writeFileSync(resolve('dist/build-commit.txt'), commitHash, 'utf-8')
+  console.log(`Wrote dist/build-commit.txt (${commitHash})`)
+
   const previewServer = await preview({
     preview: { port: PORT, strictPort: true },
   })
