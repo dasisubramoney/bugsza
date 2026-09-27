@@ -34,7 +34,15 @@ async function main() {
     preview: { port: PORT, strictPort: true },
   })
 
-  const browser = await chromium.launch()
+  // Windows blocks Playwright's own downloaded chrome-headless-shell.exe
+  // from executing (Smart App Control, not ordinary SmartScreen — confirmed
+  // it's still blocked even after Unblock-File strips the Mark-of-the-Web),
+  // so launch the system-installed, Microsoft-signed Edge instead there.
+  // Linux (Netlify's build environment) has no equivalent issue, so it
+  // keeps using Playwright's default bundled Chromium unchanged.
+  const browser = await chromium.launch(
+    process.platform === 'win32' ? { channel: 'msedge', headless: true } : undefined,
+  )
   try {
     const page = await browser.newPage()
 
