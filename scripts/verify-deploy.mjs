@@ -13,11 +13,14 @@
 // Covers:
 //   1. Raw HTML (no JS execution) contains real page content
 //   2. /robots.txt, /sitemap.xml, /llms.txt all return 200 with expected content
-//   3. Lighthouse mobile performance + SEO scores
+//   3. Lighthouse mobile performance + SEO scores (3-1, 3-2), plus the
+//      X-Robots-Tag: noindex header on the *.netlify.app subdomain (3-3)
 //   4. SSL certificate on the custom domain is issued and valid
 //   5. The custom domain resolves and loads correctly (not just *.netlify.app)
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
+import { mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 import tls from 'node:tls'
 import { URL } from 'node:url'
 import lighthouse from 'lighthouse'
@@ -111,12 +114,44 @@ await checkTextFile('/robots.txt', ['GPTBot', 'ClaudeBot', 'Sitemap:'])
 await checkTextFile('/sitemap.xml', ['<urlset', '<loc>'])
 await checkTextFile('/llms.txt', ['BUGS', 'Greater Johannesburg'])
 
+// Best-effort, human-readable reason a given Lighthouse audit failed.
+// Most binary SEO audits set `explanation`; when they don't, fall back to
+// summarizing `details.items` (the table Lighthouse shows in its report),
+// and finally to the audit's own description as a last resort.
+function describeAuditFailure(audit) {
+  if (audit.explanation) return audit.explanation
+  const items = audit.details?.items
+  if (Array.isArray(items) && items.length > 0) {
+    const parts = items
+      .slice(0, 3)
+      .map((item) => {
+        if (typeof item === 'string') return item
+        return item.text || item.href || item.url || item.node?.snippet || JSON.stringify(item)
+      })
+    const more = items.length > 3 ? ` (+${items.length - 3} more)` : ''
+    return `${parts.join('; ')}${more}`
+  }
+  return audit.description?.split('\n')[0] ?? 'no additional detail available'
+}
+
 // ---------------------------------------------------------------------
-// 3. Lighthouse — mobile performance + SEO
+// 3. Lighthouse — mobile performance + SEO, plus the noindex header
 // ---------------------------------------------------------------------
-section('3. Lighthouse (mobile)')
+section('3. Lighthouse (mobile) + noindex header')
+
+// chrome-launcher defaults to a random folder under the OS temp dir
+// (`%TEMP%\lighthouse.<random>`) as Chrome's user-data-dir, then deletes it
+// on kill() via rmSync. On Windows that delete routinely fails with EPERM
+// (AV/indexer still holding a handle on a file Chrome just closed), which
+// crashes the whole script. Passing an explicit userDataDir avoids both
+// problems: it's a stable project-local folder instead of the OS temp dir,
+// and chrome-launcher's own cleanup code skips deleting a caller-supplied
+// dir entirely, so there's nothing left to EPERM on.
+const chromeProfileDir = resolve('.lighthouse-chrome-profile')
+mkdirSync(chromeProfileDir, { recursive: true })
+
 try {
-  const chrome = await launch({ chromeFlags: ['--headless'] })
+  const chrome = await launch({ chromeFlags: ['--headless'], userDataDir: chromeProfileDir })
   try {
     const result = await lighthouse(netlifyUrl, {
       port: chrome.port,
@@ -128,15 +163,43 @@ try {
     const { performance, seo } = result.lhr.categories
     const perfScore = Math.round(performance.score * 100)
     const seoScore = Math.round(seo.score * 100)
-    console.log(`  Performance: ${perfScore}/100`)
-    console.log(`  SEO:         ${seoScore}/100`)
+
+    console.log('\n  3-1: Performance (mobile)')
+    console.log(`    Score: ${perfScore}/100`)
     if (perfScore < 50) fail('Performance score', `${perfScore}/100 is low`)
+    else ok(`Performance score ${perfScore}/100`)
+
+    console.log('\n  3-2: SEO (mobile) — full audit breakdown')
+    console.log(`    Score: ${seoScore}/100`)
+    for (const ref of seo.auditRefs) {
+      const audit = result.lhr.audits[ref.id]
+      if (!audit || audit.scoreDisplayMode === 'notApplicable' || audit.scoreDisplayMode === 'manual') continue
+      if (audit.score === 1) {
+        ok(`SEO: ${audit.title}`)
+      } else {
+        fail(`SEO: ${audit.title}`, describeAuditFailure(audit))
+      }
+    }
     if (seoScore < 90) fail('SEO score', `${seoScore}/100 is low`)
   } finally {
     await chrome.kill()
   }
 } catch (err) {
   fail('Lighthouse run', err.message)
+}
+
+console.log('\n  3-3: noindex header on netlify.app subdomain')
+const NETLIFY_SUBDOMAIN_URL = 'https://bugsza.netlify.app/'
+try {
+  const res = await fetch(NETLIFY_SUBDOMAIN_URL)
+  const header = res.headers.get('x-robots-tag')
+  if (header === 'noindex') {
+    ok(`${NETLIFY_SUBDOMAIN_URL} → X-Robots-Tag: noindex`)
+  } else {
+    fail(`${NETLIFY_SUBDOMAIN_URL} → X-Robots-Tag: noindex`, `got "${header ?? '(header missing)'}"`)
+  }
+} catch (err) {
+  fail(`Fetch ${NETLIFY_SUBDOMAIN_URL}`, err.message)
 }
 
 // ---------------------------------------------------------------------

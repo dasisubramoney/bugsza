@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Chrome profile dir scripts/verify-deploy.mjs points chrome-launcher at,
+# so it doesn't try (and EPERM-fail) to write/clean up under the OS temp dir
+.lighthouse-chrome-profile
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
