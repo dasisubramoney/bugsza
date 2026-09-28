@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useCookieConsent } from '../lib/useCookieConsent'
 
@@ -8,7 +8,7 @@ export function CookieBanner() {
   return (
     <AnimatePresence>
       {showBanner && (
-        <motion.div
+        <m.div
           role="dialog"
           aria-live="polite"
           aria-label="Cookie consent"
@@ -29,25 +29,25 @@ export function CookieBanner() {
               .
             </p>
             <div className="flex flex-shrink-0 items-center gap-3">
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={decline}
                 className="rounded-full border-2 border-bugs-white/30 px-5 py-2.5 font-display text-sm text-bugs-white transition-colors hover:border-bugs-white"
               >
                 Decline
-              </motion.button>
-              <motion.button
+              </m.button>
+              <m.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={accept}
                 className="rounded-full bg-bugs-yellow px-5 py-2.5 font-display text-sm text-bugs-black shadow-hard"
               >
                 Accept
-              </motion.button>
+              </m.button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   )

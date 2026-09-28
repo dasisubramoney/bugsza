@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
-import gsap from 'gsap'
+import { m } from 'framer-motion'
+import { gsap } from 'gsap'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { PartnersRow } from './PartnersRow'
 import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
@@ -59,23 +59,23 @@ export function Hero() {
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mb-5 inline-flex items-center rounded-full bg-bugs-black px-4 py-2 font-display text-[10px] uppercase tracking-wider text-white sm:text-xs"
           >
             12V/24V DC &middot; Backup Power &middot; Gates &bull; Garages
-          </motion.div>
-          <motion.h1
+          </m.div>
+          <m.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="font-display text-4xl leading-[1.05] text-bugs-black sm:text-5xl lg:text-6xl"
           >
             Your gate shouldn&rsquo;t stop working when the power does.
-          </motion.h1>
-          <motion.p
+          </m.h1>
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -83,30 +83,30 @@ export function Hero() {
           >
             A flat battery or a power outage leaves most electric gates dead —
             and you stuck on the wrong side of it.
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <motion.button
+            <m.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollTo('#contact')}
               className="rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard sm:text-base"
             >
               Get Yours
-            </motion.button>
-            <motion.button
+            </m.button>
+            <m.button
               whileHover={{ scale: 1.04, backgroundColor: '#0A0A0A', color: '#FFFFFF' }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollTo('#how-it-works')}
               className="rounded-full border-2 border-bugs-black px-8 py-4 font-display text-sm text-bugs-black sm:text-base"
             >
               See How It Works
-            </motion.button>
-          </motion.div>
+            </m.button>
+          </m.div>
         </div>
 
         <div className="relative flex items-center justify-center">

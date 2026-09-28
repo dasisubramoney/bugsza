@@ -51,8 +51,9 @@ async function main() {
   // so launch the system-installed, Microsoft-signed Edge instead there.
   // Linux (Netlify's build environment) has no equivalent issue, so it
   // keeps using Playwright's default bundled Chromium unchanged.
+  const isWindows = process.platform === 'win32'
   const browser = await chromium.launch(
-    process.platform === 'win32' ? { channel: 'msedge', headless: true } : undefined,
+    isWindows ? { channel: 'msedge', headless: true } : { headless: true },
   )
   try {
     const page = await browser.newPage()

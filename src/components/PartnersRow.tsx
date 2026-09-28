@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import goingSmartLogo from '../assets/Going_Smart.webp'
 import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
@@ -29,7 +29,7 @@ function VisitHint() {
 
 export function PartnersRow() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.65 }}
@@ -39,7 +39,7 @@ export function PartnersRow() {
         Our Partners
       </p>
       <div className="mt-6 flex flex-col items-center justify-center gap-6 sm:flex-row">
-        <motion.div
+        <m.div
           whileHover={{ y: -6, scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           className="group relative"
@@ -61,9 +61,9 @@ export function PartnersRow() {
             />
             <VisitHint />
           </Link>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           whileHover={{ y: -6, scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           className="group relative"
@@ -85,8 +85,8 @@ export function PartnersRow() {
             />
             <VisitHint />
           </Link>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.div>
+    </m.div>
   )
 }

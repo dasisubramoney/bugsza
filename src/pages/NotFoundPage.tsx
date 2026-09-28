@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useDocumentMeta } from '../lib/useDocumentMeta'
 import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
 
@@ -13,7 +13,7 @@ export function NotFoundPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-bugs-orange px-4 py-20 text-center">
-      <motion.img
+      <m.img
         initial={{ opacity: 0, y: -20, rotate: -4 }}
         animate={{ opacity: 1, y: 0, rotate: 0 }}
         transition={{ duration: 0.6, ease: 'backOut' }}
@@ -21,23 +21,23 @@ export function NotFoundPage() {
         alt="BUGZ"
         className="w-full max-w-xs rounded-2xl border-4 border-bugs-black shadow-hard-lg sm:max-w-sm"
       />
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-10 font-display text-6xl text-bugs-black sm:text-7xl"
       >
         404
-      </motion.p>
-      <motion.h1
+      </m.p>
+      <m.h1
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-3 font-display text-2xl text-bugs-black sm:text-3xl"
       >
         This gate doesn&rsquo;t lead anywhere.
-      </motion.h1>
-      <motion.p
+      </m.h1>
+      <m.p
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -45,8 +45,8 @@ export function NotFoundPage() {
       >
         The page you&rsquo;re looking for has moved or doesn&rsquo;t exist.
         Let&rsquo;s get you back on track.
-      </motion.p>
-      <motion.div
+      </m.p>
+      <m.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -57,7 +57,7 @@ export function NotFoundPage() {
         >
           Back to the BUGS homepage
         </Link>
-      </motion.div>
+      </m.div>
     </div>
   )
 }

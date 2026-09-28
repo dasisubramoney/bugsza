@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowLeft, Phone, Search, Lightbulb } from 'lucide-react'
 import { useDocumentMeta } from '../lib/useDocumentMeta'
 import goingSmartLogo from '../assets/Going_Smart.webp'
@@ -35,7 +35,7 @@ export function GoingSmartPage() {
         </a>
       </header>
 
-      <motion.section
+      <m.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -54,7 +54,7 @@ export function GoingSmartPage() {
           have no idea which appliances are actually driving their bill up.
           Going Smart finds out, and fixes it.
         </p>
-      </motion.section>
+      </m.section>
 
       <section className="border-t border-white/10 bg-white/5">
         <div className="mx-auto grid max-w-5xl gap-6 px-4 py-16 sm:grid-cols-2 sm:px-6 lg:px-8">
@@ -99,7 +99,7 @@ export function GoingSmartPage() {
           Take control of your electricity today
         </h2>
         <p className="mt-3 font-body text-white/60">Speak to Craig to get started.</p>
-        <motion.a
+        <m.a
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           href="tel:+27828762489"
@@ -108,7 +108,7 @@ export function GoingSmartPage() {
         >
           <Phone size={18} />
           Call Craig — 082 876 2489
-        </motion.a>
+        </m.a>
       </section>
 
       <footer className="border-t border-white/10 px-4 py-8 text-center sm:px-6 lg:px-8">

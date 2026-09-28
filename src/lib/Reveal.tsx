@@ -1,8 +1,4 @@
 import { useLayoutEffect, useRef, type ReactNode } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface RevealProps {
   children: ReactNode
@@ -27,37 +23,45 @@ export function Reveal({
   useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
-    const targets = el.children.length > 0 ? Array.from(el.children) : [el]
 
     // Respect the OS-level motion preference: skip the animation and show
     // final state immediately, rather than force scroll-triggered movement
-    // on people who've asked for less of it.
+    // on people who've asked for less of it. No need to pull in GSAP for
+    // this — just settle the DOM into its resting state directly.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set(targets, { opacity: 1, y: 0 })
+      const targets = el.children.length > 0 ? Array.from(el.children) : [el]
+      targets.forEach((target) => {
+        const style = (target as HTMLElement).style
+        style.opacity = '1'
+        style.transform = 'none'
+      })
       return
     }
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        targets,
-        { opacity: 0, y },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          delay,
-          stagger,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start,
-            toggleActions: 'play none none reverse',
-          },
-        },
-      )
-    }, ref)
+    let cleanup: (() => void) | undefined
+    let cancelled = false
 
-    return () => ctx.revert()
+    // This section's below-the-fold, so don't pull GSAP/ScrollTrigger into
+    // the initial bundle for it — only import and wire up the scroll-trigger
+    // once the section is about to enter the viewport.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return
+        observer.disconnect()
+        import('./sections/revealAnimation').then(({ setupRevealAnimation }) => {
+          if (cancelled) return
+          cleanup = setupRevealAnimation(el, { y, stagger, delay, start })
+        })
+      },
+      { rootMargin: '200px 0px' },
+    )
+    observer.observe(el)
+
+    return () => {
+      cancelled = true
+      observer.disconnect()
+      cleanup?.()
+    }
   }, [y, stagger, delay, start])
 
   return (

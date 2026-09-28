@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   ArrowLeft,
   Phone,
@@ -16,6 +16,14 @@ import {
 } from 'lucide-react'
 import { useDocumentMeta } from '../lib/useDocumentMeta'
 import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
+import workshop1Webp from '../assets/innovation-centre/workshop-1.webp'
+import workshop1Jpeg from '../assets/innovation-centre/workshop-1.resized.jpeg'
+import workshop2Webp from '../assets/innovation-centre/workshop-2.webp'
+import workshop2Jpeg from '../assets/innovation-centre/workshop-2.resized.jpeg'
+import workshop3Webp from '../assets/innovation-centre/workshop-3.webp'
+import workshop3Jpeg from '../assets/innovation-centre/workshop-3.resized.jpeg'
+import workshop4Webp from '../assets/innovation-centre/workshop-4.webp'
+import workshop4Jpeg from '../assets/innovation-centre/workshop-4.resized.jpeg'
 
 // Sampled directly from Innovation_Centre_Logo.png: NAVY is the wordmark,
 // GREEN and GOLD are the ring/bulb accents. GREEN is darkened slightly from
@@ -25,6 +33,29 @@ import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
 const NAVY = '#0B2A52'
 const GREEN = '#3E7D29'
 const GOLD = '#F9BE1E'
+
+const WORKSHOP_PHOTOS = [
+  {
+    webp: workshop1Webp,
+    jpeg: workshop1Jpeg,
+    alt: 'Woodworking floor with CNC routers, a jointer-planer, and stacked timber',
+  },
+  {
+    webp: workshop2Webp,
+    jpeg: workshop2Jpeg,
+    alt: 'Metal fabrication bay with a cutting bandsaw, drill press, and welding equipment',
+  },
+  {
+    webp: workshop3Webp,
+    jpeg: workshop3Jpeg,
+    alt: 'Panel saw and edge-banding station for cutting and finishing timber panels',
+  },
+  {
+    webp: workshop4Webp,
+    jpeg: workshop4Jpeg,
+    alt: 'Press brake and fiber laser cutter for precision sheet metal work',
+  },
+]
 
 const FEATURES = [
   {
@@ -87,7 +118,7 @@ export function InnovationCentrePage() {
         />
       </header>
 
-      <motion.section
+      <m.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -111,7 +142,7 @@ export function InnovationCentrePage() {
           A platform to showcase pilot projects, run community expos, and
           host training workshops for the entrepreneurs of the future.
         </p>
-      </motion.section>
+      </m.section>
 
       <section className="border-y bg-white" style={{ borderColor: `${NAVY}1A` }}>
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
@@ -127,11 +158,11 @@ export function InnovationCentrePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="text-center font-display text-2xl sm:text-3xl">What it provides</h2>
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 flex flex-wrap justify-center gap-6">
           {FEATURES.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="rounded-2xl border bg-white p-7 shadow-sm"
+              className="w-full rounded-2xl border bg-white p-7 shadow-sm sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               style={{ borderColor: `${NAVY}1A` }}
             >
               <span
@@ -167,13 +198,45 @@ export function InnovationCentrePage() {
         </div>
       </section>
 
+      <section className="border-t bg-white" style={{ borderColor: `${NAVY}1A` }}>
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-center font-display text-2xl sm:text-3xl">Inside the workshop</h2>
+          <p
+            className="mx-auto mt-3 max-w-xl text-center font-body"
+            style={{ color: `${NAVY}B3` }}
+          >
+            A working factory floor, not just a pitch deck — real machines, real
+            capacity, ready for the next idea.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {WORKSHOP_PHOTOS.map(({ webp, jpeg, alt }) => (
+              <div
+                key={jpeg}
+                className="overflow-hidden rounded-2xl border shadow-sm"
+                style={{ borderColor: `${NAVY}1A` }}
+              >
+                <picture>
+                  <source srcSet={webp} type="image/webp" />
+                  <img
+                    src={jpeg}
+                    alt={alt}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </picture>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-2xl sm:text-3xl">Got an idea worth building?</h2>
         <p className="mx-auto mt-3 max-w-md font-body opacity-60">
           Get in touch with Craig to find out how The Innovation Centre can
           help take it further.
         </p>
-        <motion.a
+        <m.a
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           href="tel:+27828762489"
@@ -182,7 +245,7 @@ export function InnovationCentrePage() {
         >
           <Phone size={18} />
           Call Craig — 082 876 2489
-        </motion.a>
+        </m.a>
       </section>
 
       <footer className="border-t px-4 py-8 text-center sm:px-6 lg:px-8" style={{ borderColor: `${NAVY}1A` }}>
