@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ExternalLink, Lightbulb } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import goingSmartLogo from '../assets/Going_Smart.webp'
+import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
 
 const cardClass =
   'group relative flex h-36 w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-4 border-bugs-black bg-white p-6 shadow-hard-lg transition-transform duration-300 sm:h-40 sm:w-80'
@@ -76,12 +77,12 @@ export function PartnersRow() {
             aria-label="Visit The Innovation Centre (opens in a new tab)"
           >
             <PartnerBadge />
-            <span className="flex items-center gap-2">
-              <Lightbulb size={22} className="text-bugs-orange-dark" strokeWidth={2} />
-              <span className="text-center font-display text-xl text-bugs-black">
-                The Innovation Centre
-              </span>
-            </span>
+            <img
+              src={innovationCentreLogo}
+              alt="The Innovation Centre"
+              loading="lazy"
+              className="h-20 w-20 rounded-full object-contain sm:h-24 sm:w-24"
+            />
             <VisitHint />
           </Link>
         </motion.div>

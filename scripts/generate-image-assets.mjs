@@ -89,6 +89,11 @@ const RESIZE_JOBS = [
     base: 'src/assets/Going_Smart',
     width: 900,
   },
+  {
+    src: 'src/assets/Innovation_Centre_Logo.png',
+    base: 'src/assets/Innovation_Centre_Logo',
+    width: 600,
+  },
 ]
 
 for (const { src, base, width } of RESIZE_JOBS) {
