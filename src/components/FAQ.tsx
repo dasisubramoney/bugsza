@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 import { CALLOUT_FEE_DISPLAY } from '../lib/businessInfo'
@@ -77,23 +77,23 @@ export function FAQ() {
                     <span className="font-display text-lg text-bugs-black sm:text-xl">
                       {item.q}
                     </span>
-                    <motion.span
+                    <m.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
                       className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-bugs-orange text-bugs-black"
                     >
                       <ChevronDown size={18} />
-                    </motion.span>
+                    </m.span>
                   </button>
                 </h3>
-                <motion.div
+                <m.div
                   initial={false}
                   animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
                   <p className="pb-6 font-body text-bugs-black/70">{item.a}</p>
-                </motion.div>
+                </m.div>
               </div>
             )
           })}

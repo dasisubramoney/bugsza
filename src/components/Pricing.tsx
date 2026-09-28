@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { Reveal } from '../lib/Reveal'
 import {
@@ -58,14 +58,14 @@ export function Pricing() {
                 </p>
               </div>
 
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => scrollTo('#contact')}
                 className="mt-8 w-full rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard"
               >
                 Get Yours
-              </motion.button>
+              </m.button>
             </div>
           </div>
         </Reveal>

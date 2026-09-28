@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { WhatsAppIcon } from './icons'
 import { WHATSAPP_URL } from '../lib/businessInfo'
 import { useCookieConsent } from '../lib/useCookieConsent'
@@ -7,7 +7,7 @@ export function WhatsAppButton() {
   const { showBanner } = useCookieConsent()
 
   return (
-    <motion.a
+    <m.a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noreferrer"
@@ -30,6 +30,6 @@ export function WhatsAppButton() {
       className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border-2 border-bugs-black bg-[#25D366] text-white shadow-hard sm:bottom-6 sm:right-6"
     >
       <WhatsAppIcon className="h-7 w-7" />
-    </motion.a>
+    </m.a>
   )
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   ArrowLeft,
   Phone,
@@ -75,7 +75,7 @@ export function InnovationCentrePage() {
         </span>
       </header>
 
-      <motion.section
+      <m.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -91,7 +91,7 @@ export function InnovationCentrePage() {
           A platform to showcase pilot projects, run community expos, and
           host training workshops for the entrepreneurs of the future.
         </p>
-      </motion.section>
+      </m.section>
 
       <section className="border-y border-bugs-black/10 bg-white">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
@@ -148,7 +148,7 @@ export function InnovationCentrePage() {
           Get in touch with Craig to find out how The Innovation Centre can
           help take it further.
         </p>
-        <motion.a
+        <m.a
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
           href="tel:+27828762489"
@@ -156,7 +156,7 @@ export function InnovationCentrePage() {
         >
           <Phone size={18} />
           Call Craig — 082 876 2489
-        </motion.a>
+        </m.a>
       </section>
 
       <footer className="border-t border-bugs-black/10 px-4 py-8 text-center sm:px-6 lg:px-8">

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { LazyMotion, domMax } from 'framer-motion'
 import { HomePage } from './pages/HomePage'
 import { GoingSmartPage } from './pages/GoingSmartPage'
 import { InnovationCentrePage } from './pages/InnovationCentrePage'
@@ -20,7 +21,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <>
+    <LazyMotion features={domMax}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -31,7 +32,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <CookieBanner />
-    </>
+    </LazyMotion>
   )
 }
 

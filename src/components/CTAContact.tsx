@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { AlertCircle, Clock, Phone } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 import { WhatsAppIcon } from './icons'
@@ -193,7 +193,7 @@ export function CTAContact() {
               <p className="font-body text-sm text-bugs-black/60">
                 Message us on WhatsApp or give us a call — we're happy to help.
               </p>
-              <motion.a
+              <m.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={WHATSAPP_URL}
@@ -203,8 +203,8 @@ export function CTAContact() {
               >
                 <WhatsAppIcon className="h-[18px] w-[18px]" />
                 Chat on WhatsApp
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={`tel:${PHONE_E164}`}
@@ -212,7 +212,7 @@ export function CTAContact() {
               >
                 <Phone size={18} />
                 Call Us
-              </motion.a>
+              </m.a>
               <p className="flex items-center justify-center gap-2 font-body text-xs text-bugs-black/50">
                 <Clock size={14} />
                 {HOURS_DISPLAY}
@@ -307,7 +307,7 @@ export function CTAContact() {
 
               <AnimatePresence initial={false}>
                 {propertyType && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -379,7 +379,7 @@ export function CTAContact() {
                         </div>
                       )}
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
 
@@ -394,7 +394,7 @@ export function CTAContact() {
 
               <AnimatePresence initial={false}>
                 {status === 'error' && (
-                  <motion.p
+                  <m.p
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -403,11 +403,11 @@ export function CTAContact() {
                     <AlertCircle size={16} className="flex-shrink-0" />
                     Something went wrong sending your message. Please try
                     again, or WhatsApp/call us directly.
-                  </motion.p>
+                  </m.p>
                 )}
               </AnimatePresence>
 
-              <motion.button
+              <m.button
                 whileHover={status === 'submitting' ? undefined : { scale: 1.02 }}
                 whileTap={status === 'submitting' ? undefined : { scale: 0.98 }}
                 type="submit"
@@ -419,7 +419,7 @@ export function CTAContact() {
                   : status === 'success'
                     ? 'Thanks — we’ll be in touch'
                     : 'Send Message'}
-              </motion.button>
+              </m.button>
             </form>
           </div>
         </Reveal>

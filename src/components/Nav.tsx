@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useSmoothScroll } from '../lib/SmoothScroll'
 import { NAV_SECTIONS, type SectionId } from '../lib/sections'
@@ -68,7 +68,7 @@ export function Nav() {
               {label}
               <span className="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 bg-bugs-black transition-transform duration-300 ease-out group-hover:scale-x-100" />
               {active === id && (
-                <motion.span
+                <m.span
                   layoutId="nav-underline"
                   className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-bugs-black"
                   transition={{ type: 'spring', stiffness: 500, damping: 35 }}
@@ -79,14 +79,14 @@ export function Nav() {
         </nav>
 
         <div className="hidden lg:block">
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => handleNavClick('contact')}
             className="rounded-full bg-bugs-yellow px-6 py-2.5 font-display text-sm text-bugs-black shadow-hard"
           >
             Get BUGS
-          </motion.button>
+          </m.button>
         </div>
 
         <button
@@ -100,7 +100,7 @@ export function Nav() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.nav
+          <m.nav
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -124,7 +124,7 @@ export function Nav() {
                 Get BUGS
               </button>
             </div>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
     </header>
