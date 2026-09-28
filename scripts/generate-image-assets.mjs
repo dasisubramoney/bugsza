@@ -94,6 +94,26 @@ const RESIZE_JOBS = [
     base: 'src/assets/Innovation_Centre_Logo',
     width: 600,
   },
+  {
+    src: 'src/assets/innovation-centre/workshop-1.jpg',
+    base: 'src/assets/innovation-centre/workshop-1',
+    width: 800,
+  },
+  {
+    src: 'src/assets/innovation-centre/workshop-2.jpg',
+    base: 'src/assets/innovation-centre/workshop-2',
+    width: 800,
+  },
+  {
+    src: 'src/assets/innovation-centre/workshop-3.jpg',
+    base: 'src/assets/innovation-centre/workshop-3',
+    width: 800,
+  },
+  {
+    src: 'src/assets/innovation-centre/workshop-4.jpg',
+    base: 'src/assets/innovation-centre/workshop-4',
+    width: 800,
+  },
 ]
 
 for (const { src, base, width } of RESIZE_JOBS) {
