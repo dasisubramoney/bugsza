@@ -60,7 +60,7 @@ export function PrivacyPage() {
           <h2 className={h2}>What we collect</h2>
           <p className={p}>When you use the contact form on this site, we collect:</p>
           <ul className="mt-3 list-disc space-y-1 pl-5 font-body text-bugs-black/70">
-            <li>Your name and phone number</li>
+            <li>Your name, phone number, and email address</li>
             <li>
               Details about your property and gate/garage motor setup (e.g.
               property type, motor voltage and brand, access arrangements),

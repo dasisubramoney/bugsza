@@ -37,6 +37,10 @@ const ACCESS_OPTIONS: { value: Access; label: string }[] = [
 // just enough to catch empty/garbage input before it hits the network.
 const PHONE_PATTERN = /^\+?[0-9\s]{7,15}$/
 
+// Loose "looks like an email" check, not an RFC-5322 validator — same
+// philosophy as the phone pattern above.
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 const inputClass =
   'rounded-lg border-2 border-bugs-black/20 px-4 py-3 font-body text-sm text-bugs-black outline-none focus:border-bugs-black'
 const errorInputClass = 'border-red-400 focus:border-red-500'
@@ -79,6 +83,7 @@ function encodeForm(data: Record<string, string>) {
 export function CTAContact() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [motorBrand, setMotorBrand] = useState('')
   const [complexUnits, setComplexUnits] = useState('')
@@ -90,9 +95,12 @@ export function CTAContact() {
   const [access, setAccess] = useState<Access | null>(null)
   const [buildingType, setBuildingType] = useState<BuildingType | null>(null)
 
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; propertyType?: string }>(
-    {},
-  )
+  const [errors, setErrors] = useState<{
+    name?: string
+    phone?: string
+    email?: string
+    propertyType?: string
+  }>({})
   const [status, setStatus] = useState<SubmitStatus>('idle')
 
   const validate = () => {
@@ -105,6 +113,11 @@ export function CTAContact() {
     } else if (!PHONE_PATTERN.test(phone.trim())) {
       nextErrors.phone = 'Enter a valid phone number, e.g. 082 876 2489.'
     }
+    if (!email.trim()) {
+      nextErrors.email = 'Please enter your email address.'
+    } else if (!EMAIL_PATTERN.test(email.trim())) {
+      nextErrors.email = 'Enter a valid email address.'
+    }
     if (!propertyType) {
       nextErrors.propertyType = 'Please select a property type.'
     }
@@ -115,6 +128,7 @@ export function CTAContact() {
   const resetForm = () => {
     setName('')
     setPhone('')
+    setEmail('')
     setMessage('')
     setMotorBrand('')
     setComplexUnits('')
@@ -146,6 +160,7 @@ export function CTAContact() {
           'bot-field': honeypot,
           name,
           phone,
+          email,
           'property-type': propertyType ?? '',
           'motor-voltage': voltage ?? '',
           'motor-brand': motorBrand,
@@ -280,6 +295,23 @@ export function CTAContact() {
                 <p className={fieldErrorClass}>
                   <AlertCircle size={12} className="mr-1 inline" />
                   {errors.phone}
+                </p>
+              )}
+
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="Email address"
+                value={email}
+                onChange={handleFieldChange(setEmail, 'email')}
+                aria-invalid={Boolean(errors.email)}
+                className={`${inputClass} ${errors.email ? errorInputClass : ''}`}
+              />
+              {errors.email && (
+                <p className={fieldErrorClass}>
+                  <AlertCircle size={12} className="mr-1 inline" />
+                  {errors.email}
                 </p>
               )}
 
