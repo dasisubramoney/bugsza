@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { m } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
+import bugsLogo from '../assets/Bugz_co_za_Updated_Logo.webp'
 import goingSmartLogo from '../assets/Going_Smart.webp'
 import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
 
-const cardClass =
-  'group relative flex h-36 w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-4 border-bugs-black bg-white p-6 shadow-hard-lg transition-transform duration-300 sm:h-40 sm:w-80'
+const cardSizeClass = 'h-44 w-full max-w-xs sm:h-48 lg:w-72'
+const cardClass = `group relative flex ${cardSizeClass} flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-4 border-bugs-black bg-white p-6 shadow-hard-lg transition-transform duration-300`
 
 function PartnerBadge() {
   return (
@@ -33,12 +34,9 @@ export function PartnersRow() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.65 }}
-      className="mt-16 lg:col-span-2"
+      className="mt-16 w-full"
     >
-      <p className="text-center font-display text-sm uppercase tracking-widest text-bugs-black/60 sm:text-base">
-        Our Partners
-      </p>
-      <div className="mt-6 flex flex-col items-center justify-center gap-6 sm:flex-row">
+      <div className="flex flex-col items-center justify-center gap-6 lg:flex-row lg:flex-nowrap">
         <m.div
           whileHover={{ y: -6, scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
@@ -57,11 +55,21 @@ export function PartnersRow() {
               src={goingSmartLogo}
               alt="Going Smart Energy Solutions"
               loading="lazy"
-              className="h-16 w-full max-w-[220px] rounded-lg object-contain"
+              className="h-20 w-full max-w-[220px] rounded-lg object-contain sm:h-24"
             />
             <VisitHint />
           </Link>
         </m.div>
+
+        <div
+          className={`relative flex ${cardSizeClass} items-center justify-center overflow-hidden rounded-2xl border-4 border-bugs-black bg-bugs-orange p-4 shadow-hard-lg`}
+        >
+          <img
+            src={bugsLogo}
+            alt="BUGZ — portable backup power for gates and garages. Keep Rollin'."
+            className="h-full w-full rounded-xl object-contain"
+          />
+        </div>
 
         <m.div
           whileHover={{ y: -6, scale: 1.03 }}

@@ -2,28 +2,27 @@ import { useState } from 'react'
 import { m } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
-import { CALLOUT_FEE_DISPLAY } from '../lib/businessInfo'
 
 const FAQS = [
   {
     q: 'Will it work with my gate motor?',
-    a: 'BUGS currently works with Centurion motors only. Support for other motor brands is planned but not yet available.',
+    a: 'BUGS currently works with Centurion motors.',
   },
   {
     q: 'How long does a charge last?',
-    a: 'Runtime depends on the type of gate, motor draw, and cycle frequency. Exact tested figures, such as the number of open/close cycles per full charge, are not yet published.',
+    a: 'Runtime depends on the type of gate, motor draw, size of complex and cycle frequency. Exact tested figures, such as the number of open/close cycles are subject to the size of the property.',
   },
   {
     q: 'Do I need an electrician to set it up?',
-    a: `Yes. BUGS is professionally installed once, and BUGS supplies the accredited installer. Installation is billed separately from the unit price — the callout fee is ${CALLOUT_FEE_DISPLAY} After that one-time setup, it operates as a plug-and-play system for every outage after.`,
+    a: 'Yes. BUGS is professionally installed, and BUGS provides the accredited installer. Installation is billed separately from the unit price — the callout fee is R650/hour, based on location. Final cost may vary depending on travel distance. After that one-time setup, it operates as a plug-and-play system for every outage thereafter.',
   },
   {
     q: 'Can it power a garage door too?',
-    a: 'Yes, on Centurion garage motors. BUGS currently supports Centurion motors only.',
+    a: 'Yes. An additional plug is required on the garage door motor.',
   },
   {
-    q: 'What warranty comes with it?',
-    a: 'The warranty period depends on the battery used and is carried by the battery manufacturer, not BUGS.',
+    q: 'What is the warrantee?',
+    a: 'The warrantee on the battery is provided by the battery brand.',
   },
 ]
 
@@ -58,9 +57,6 @@ export function FAQ() {
           <h2 className="mt-3 font-display text-xl leading-tight text-bugs-black sm:text-2xl">
             Good questions.
           </h2>
-          <p className="mt-3 font-body text-sm text-bugs-black/50">
-            Answers for common questions about BUGS.
-          </p>
         </Reveal>
 
         <div className="mt-10 divide-y-2 divide-bugs-black/10">

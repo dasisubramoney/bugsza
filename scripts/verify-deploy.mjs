@@ -114,7 +114,7 @@ for (const routePath of ROUTES) {
     else fail(`${routePath}: <h1> with real text present`, 'no non-empty <h1> found')
 
     if (routePath === '/') {
-      if (bodyOnly.includes('R4,500') || bodyOnly.includes('Centurion')) {
+      if (bodyOnly.includes('R 4,500.00') || bodyOnly.includes('Centurion')) {
         ok(`${routePath}: real body copy (pricing/compatibility facts) present`)
       } else {
         fail(`${routePath}: real body copy present`, 'expected facts not found — is dist/ prerendered?')

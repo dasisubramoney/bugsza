@@ -78,24 +78,27 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="flex items-center gap-3">
           <m.button
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => handleNavClick('contact')}
-            className="rounded-full bg-bugs-yellow px-6 py-2.5 font-display text-sm text-bugs-black shadow-hard"
+            onClick={() => {
+              setMenuOpen(false)
+              scrollTo('#contact-form')
+            }}
+            className="rounded-full bg-bugs-yellow px-5 py-2 font-display text-sm text-bugs-black shadow-hard sm:px-6 sm:py-2.5"
           >
-            Get BUGS
+            Order Yours
           </m.button>
-        </div>
 
-        <button
-          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-bugs-black text-bugs-black lg:hidden"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <button
+            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-bugs-black text-bugs-black lg:hidden"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -117,12 +120,6 @@ export function Nav() {
                   {label}
                 </button>
               ))}
-              <button
-                onClick={() => handleNavClick('contact')}
-                className="mt-2 rounded-full bg-bugs-yellow px-6 py-3 text-center font-display text-sm text-bugs-black shadow-hard"
-              >
-                Get BUGS
-              </button>
             </div>
           </m.nav>
         )}

@@ -22,6 +22,10 @@ export const PHONE_E164_SPACED = '+27 78 362 8387'
 export const WHATSAPP_URL = 'https://wa.me/27783628387'
 
 export const SERVICE_AREA = 'Greater Johannesburg'
+// Marketing copy now advertises countrywide reach; SERVICE_AREA above stays
+// the base city for schema.org's `areaServed` (a City type), which this
+// phrase wouldn't fit.
+export const SERVICE_AREA_DISPLAY = 'Greater Johannesburg and countrywide'
 
 export const HOURS_DISPLAY = 'Mon–Fri, 8am–5pm'
 export const HOURS_SCHEMA = {
@@ -37,11 +41,11 @@ export const HOURS_SCHEMA = {
 }
 
 export const PRICE_ZAR = 4500
-export const PRICE_DISPLAY = 'R4,500'
+export const PRICE_DISPLAY = 'R 4,500.00'
 export const PRICE_NOTE = 'Subject to change'
 export const DELIVERY_NOTE = 'Delivery: subject to locality'
 export const CALLOUT_FEE_DISPLAY =
-  'R650/hour, based on your location. Final cost may vary with distance and site conditions.'
+  'R650/hour, based on your location. Final cost may vary with distance.'
 // The unit price never includes installation — every mention of R4,500
 // must make that explicit, since installation is billed separately at the
 // callout rate above.

@@ -205,7 +205,7 @@ export function CTAContact() {
             <div className="absolute -inset-1 rounded-2xl bg-bugs-black opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40" />
             <div className="relative flex flex-col gap-4 rounded-2xl border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 group-hover:-translate-y-1">
               <h3 className="font-display text-xl text-bugs-black">Talk to us directly</h3>
-              <p className="font-body text-sm text-bugs-black/60">
+              <p className="font-body text-sm text-bugs-black/80">
                 Message us on WhatsApp or give us a call — we're happy to help.
               </p>
               <m.a
@@ -238,6 +238,7 @@ export function CTAContact() {
           <div className="group relative">
             <div className="absolute -inset-1 rounded-2xl bg-bugs-black opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40" />
             <form
+              id="contact-form"
               name="contact"
               onSubmit={handleSubmit}
               noValidate

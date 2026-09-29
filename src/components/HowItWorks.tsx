@@ -1,17 +1,17 @@
 import { Wrench, MapPin, Banknote } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
-import { CALLOUT_FEE_DISPLAY, SERVICE_AREA } from '../lib/businessInfo'
+import { CALLOUT_FEE_DISPLAY, SERVICE_AREA_DISPLAY } from '../lib/businessInfo'
 
 const INSTALL_INFO = [
   {
     icon: Wrench,
     label: 'Professional install',
-    detail: 'One-time setup — BUGS supplies an accredited installer.',
+    detail: 'Professionally installed by a BUGS accredited agent.',
   },
   {
     icon: MapPin,
     label: 'Service area',
-    detail: `${SERVICE_AREA}.`,
+    detail: `${SERVICE_AREA_DISPLAY}.`,
   },
   {
     icon: Banknote,
@@ -24,7 +24,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Carry it to the gate motor',
-    body: 'Grab BUGS and bring it straight to your gate or garage motor — no wiring, no tools.',
+    body: 'Grab BUGS and bring it straight to your gate or garage motor.',
   },
   {
     number: '02',
@@ -34,7 +34,7 @@ const STEPS = [
   {
     number: '03',
     title: 'When power’s back, unplug and recharge at any wall socket',
-    body: 'No special charger needed — just a standard wall socket, ready for the next outage.',
+    body: 'Dedicated charger supplied — just a standard wall socket, ready for the next outage.',
   },
 ]
 

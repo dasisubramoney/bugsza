@@ -17,7 +17,7 @@ export function HomePage() {
   useDocumentMeta({
     title: 'BUGS — Portable Backup Power for Gate & Garage Motors',
     description:
-      'BUGS is a portable 12V/24V DC backup power unit for electric gate and garage motors. R4,500 for the unit; installation is billed separately. Serving Greater Johannesburg.',
+      'BUGS is a portable 12V/24V DC backup power unit for electric gate and garage motors. R 4,500.00 for the unit; installation is billed separately. Serving Greater Johannesburg and countrywide.',
     path: '/',
   })
 

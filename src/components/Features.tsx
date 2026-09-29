@@ -2,11 +2,11 @@ import { Zap, Backpack, Plug, Wrench, DoorOpen } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 
 const FEATURES = [
-  { icon: Zap, title: '12V/24V DC output', body: 'Matched to Centurion motor requirements — currently the only brand BUGS supports.' },
-  { icon: Backpack, title: 'Portable, carry-to-gate design', body: 'Lightweight enough to grab and go the moment you need it.' },
-  { icon: Plug, title: 'Recharges anywhere', body: 'Tops up from any standard wall socket — no special charger.' },
-  { icon: Wrench, title: 'Plug-and-play after setup', body: 'A one-time professional installation, then simple plug-in use from every outage after.' },
-  { icon: DoorOpen, title: 'Centurion gate and garage motors', body: 'One unit, ready to back up either — whichever loses power first. Other motor brands aren’t supported yet.' },
+  { icon: Zap, title: '12V/24V DC output', body: 'Currently matched to Centurion motor requirements, but other brands to follow. Contact us for more information.' },
+  { icon: Backpack, title: 'Portable, carry-to-gate design', body: 'Light enough to easily carry to the gate when required.' },
+  { icon: Wrench, title: 'Plug-and-play', body: 'Once installed by a BUGS approved specialist, simply plug into the matching plug socket at the gate.' },
+  { icon: Plug, title: 'Recharge after use', body: 'Top up from any standard wall socket with the dedicated charger included in the box.' },
+  { icon: DoorOpen, title: 'Gate and garage motors', body: 'The same unit can be used for the garage door after the specialist has installed the adaptor plug.' },
 ]
 
 export function Features() {

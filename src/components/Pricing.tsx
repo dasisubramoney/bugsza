@@ -45,7 +45,7 @@ export function Pricing() {
             <div className="absolute -inset-2 rounded-2xl bg-bugs-yellow opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-70" />
             <div className="relative rounded-2xl border-4 border-bugs-yellow bg-bugs-white p-10 text-center shadow-[6px_6px_0_0_#FFC709] transition-transform duration-300 group-hover:-translate-y-1">
               <p className="font-display text-5xl text-bugs-black sm:text-6xl">{PRICE_DISPLAY}</p>
-              <p className="mt-2 font-body text-xs text-bugs-black/50">
+              <p className="mt-2 font-body text-xs text-bugs-black/50 sm:text-sm">
                 *{PRICE_NOTE}
               </p>
 
@@ -61,10 +61,10 @@ export function Pricing() {
               <m.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => scrollTo('#contact')}
+                onClick={() => scrollTo('#contact-form')}
                 className="mt-8 w-full rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard"
               >
-                Get Yours
+                Order Yours Today
               </m.button>
             </div>
           </div>

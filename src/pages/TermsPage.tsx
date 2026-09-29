@@ -9,7 +9,7 @@ import {
   PHONE_E164_SPACED,
   PRICE_DISPLAY,
   PRICE_NOTE,
-  SERVICE_AREA,
+  SERVICE_AREA_DISPLAY,
   WHATSAPP_URL,
 } from '../lib/businessInfo'
 import logo from '../assets/Bugz_co_za_Updated_Logo.webp'
@@ -71,8 +71,8 @@ export function TermsPage() {
             <li>{INSTALL_NOT_INCLUDED_NOTE}</li>
             <li>Installation callout: {CALLOUT_FEE_DISPLAY}</li>
             <li>
-              We currently service {SERVICE_AREA}. Delivery cost depends on
-              your locality.
+              We currently service {SERVICE_AREA_DISPLAY}. Delivery cost
+              depends on your locality.
             </li>
             <li>
               BUGS currently supports Centurion gate and garage motors only.

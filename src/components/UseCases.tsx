@@ -1,16 +1,21 @@
-import { Building2, CircleOff, Layers } from 'lucide-react'
+import { Building2, BatteryWarning, CircleOff, Layers } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 
 const USE_CASES = [
   {
     icon: Layers,
-    title: 'Load shedding stages',
-    body: 'From stage 1 to stage 8, BUGS keeps your gate cycling on schedule, every schedule.',
+    title: 'Load Shedding',
+    body: 'BUGS keeps your gate working through all power outages.',
   },
   {
     icon: CircleOff,
     title: 'Unplanned grid outages',
-    body: 'Storms, faults, maintenance — whenever the grid drops, BUGS is already the backup.',
+    body: 'Storms, faults, maintenance – whenever the grid drops, BUGS is the backup.',
+  },
+  {
+    icon: BatteryWarning,
+    title: 'Battery Failure',
+    body: 'BUGS is the backup to keep your gate working.',
   },
   {
     icon: Building2,
@@ -25,7 +30,7 @@ export function UseCases() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
           <p className="font-display text-sm uppercase tracking-widest text-bugs-yellow">
-            Use Cases
+            Battery Backup Applications
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-white sm:text-4xl">
             Wherever the power cuts out, BUGS keeps rolling.
@@ -33,7 +38,7 @@ export function UseCases() {
         </Reveal>
 
         <Reveal
-          className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-3"
+          className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
           stagger={0.15}
         >
           {USE_CASES.map(({ icon: Icon, title, body }) => (

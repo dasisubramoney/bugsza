@@ -16,7 +16,7 @@ mkdirSync('public', { recursive: true })
 
 // --- Favicons, cropped to the beetle mark only -----------------------
 const logo = 'src/assets/Bugz_co_za_Updated_Logo.png'
-const beetleCrop = { left: 0, top: 15, width: 415, height: 425 }
+const beetleCrop = { left: 50, top: 30, width: 400, height: 400 }
 
 async function writeFavicon(size, outPath) {
   await sharp(logo)
