@@ -114,6 +114,16 @@ const RESIZE_JOBS = [
     base: 'src/assets/innovation-centre/workshop-4',
     width: 800,
   },
+  {
+    src: 'src/assets/going-smart/smart-meter.jpg',
+    base: 'src/assets/going-smart/smart-meter',
+    width: 700,
+  },
+  {
+    src: 'src/assets/going-smart/energy-efficient-home.jpg',
+    base: 'src/assets/going-smart/energy-efficient-home',
+    width: 700,
+  },
 ]
 
 for (const { src, base, width } of RESIZE_JOBS) {

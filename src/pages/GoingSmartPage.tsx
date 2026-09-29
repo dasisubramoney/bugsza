@@ -3,6 +3,10 @@ import { m } from 'framer-motion'
 import { ArrowLeft, Phone, Search, Lightbulb } from 'lucide-react'
 import { useDocumentMeta } from '../lib/useDocumentMeta'
 import goingSmartLogo from '../assets/Going_Smart.webp'
+import smartMeterWebp from '../assets/going-smart/smart-meter.webp'
+import smartMeterJpeg from '../assets/going-smart/smart-meter.resized.jpeg'
+import energyEfficientHomeWebp from '../assets/going-smart/energy-efficient-home.webp'
+import energyEfficientHomeJpeg from '../assets/going-smart/energy-efficient-home.resized.jpeg'
 
 const NAVY = '#131B2D'
 const GREEN = '#6FA84A'
@@ -11,7 +15,7 @@ export function GoingSmartPage() {
   useDocumentMeta({
     title: 'Going Smart Energy Solutions — Smart Tech Audits | BUGS Partner',
     description:
-      'Going Smart Energy Solutions runs a Smart Tech Audit to show exactly why your electricity bill is running high, then gives you practical solutions to bring it down.',
+      'Going Smart Energy Solutions runs a Smart Tech Audit on your electricity and water usage, then gives you practical solutions to bring your costs down.',
     path: '/going-smart',
   })
 
@@ -47,13 +51,44 @@ export function GoingSmartPage() {
           className="mx-auto w-full max-w-md rounded-xl"
         />
         <h1 className="mt-10 font-display text-4xl leading-tight text-white sm:text-5xl">
-          Is your electricity bill out of control?
+          Is your electricity and water bill out of control?
         </h1>
         <p className="mx-auto mt-5 max-w-xl font-body text-lg text-white/70">
-          Most municipal meters can read incorrectly — and most households
+          Municipal meters can read incorrectly — and most households
           have no idea which appliances are actually driving their bill up.
-          Going Smart finds out, and fixes it.
+          Going Smart will show you how to reduce your costs.
         </p>
+
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
+          <div
+            className="overflow-hidden rounded-2xl border"
+            style={{ borderColor: `${GREEN}4D` }}
+          >
+            <picture>
+              <source srcSet={smartMeterWebp} type="image/webp" />
+              <img
+                src={smartMeterJpeg}
+                alt="Smart utility meters tracking real-time electricity usage"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </picture>
+          </div>
+          <div
+            className="overflow-hidden rounded-2xl border"
+            style={{ borderColor: `${GREEN}4D` }}
+          >
+            <picture>
+              <source srcSet={energyEfficientHomeWebp} type="image/webp" />
+              <img
+                src={energyEfficientHomeJpeg}
+                alt="An energy-efficient home with solar panels after a Going Smart audit"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </picture>
+          </div>
+        </div>
       </m.section>
 
       <section className="border-t border-white/10 bg-white/5">
@@ -70,8 +105,7 @@ export function GoingSmartPage() {
             </span>
             <h3 className="mt-6 font-display text-xl text-white">Smart Tech Audit</h3>
             <p className="mt-3 font-body text-white/70">
-              We conduct a full technical audit of your account to show
-              exactly why it&rsquo;s running high — no guesswork, just data.
+              We conduct a full technical audit — no guesswork, just data.
             </p>
           </div>
 
@@ -88,7 +122,7 @@ export function GoingSmartPage() {
             <h3 className="mt-6 font-display text-xl text-white">Practical Solutions</h3>
             <p className="mt-3 font-body text-white/70">
               Then we give you practical, tailored solutions to bring your
-              monthly electricity costs down for good.
+              monthly electricity and water bill down for good.
             </p>
           </div>
         </div>
@@ -96,7 +130,7 @@ export function GoingSmartPage() {
 
       <section className="px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-2xl text-white sm:text-3xl">
-          Take control of your electricity today
+          Take control of your electricity and water costs today
         </h2>
         <p className="mt-3 font-body text-white/60">Speak to Craig to get started.</p>
         <m.a
