@@ -7,6 +7,11 @@ import innovationCentreLogo from '../assets/Innovation_Centre_Logo.webp'
 
 const cardSizeClass = 'h-44 w-full max-w-xs sm:h-48 lg:w-72'
 const cardClass = `group relative flex ${cardSizeClass} flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border-4 border-bugs-black bg-white p-6 shadow-hard-lg transition-transform duration-300`
+// The outer hover-glow wrapper needs the same width as the card itself —
+// without it, this div has no definite width in the flex-col mobile layout,
+// so it shrinks to fit its content instead of filling up to max-w-xs, and
+// two cards with differently-sized logos end up visibly different widths.
+const cardWrapperClass = 'group relative w-full max-w-xs lg:w-72'
 
 function PartnerBadge() {
   return (
@@ -40,7 +45,7 @@ export function PartnersRow() {
         <m.div
           whileHover={{ y: -6, scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          className="group relative"
+          className={cardWrapperClass}
         >
           <div className="absolute -inset-2 rounded-2xl bg-bugs-yellow opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-80" />
           <Link
@@ -74,7 +79,7 @@ export function PartnersRow() {
         <m.div
           whileHover={{ y: -6, scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          className="group relative"
+          className={cardWrapperClass}
         >
           <div className="absolute -inset-2 rounded-2xl bg-bugs-yellow opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-80" />
           <Link

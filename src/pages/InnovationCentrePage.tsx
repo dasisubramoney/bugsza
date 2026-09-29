@@ -61,7 +61,7 @@ const FEATURES = [
   {
     icon: Lightbulb,
     title: 'Catalyst for Ideas',
-    body: 'A space where concepts are refined, tested, and developed into working prototypes.',
+    body: 'A space where ideas are created, developed, tested and refined into a working model.',
   },
   {
     icon: Users,
@@ -70,8 +70,8 @@ const FEATURES = [
   },
   {
     icon: Rocket,
-    title: 'Pathway to Commercialisation',
-    body: 'Guidance through patents, pilots, manufacturing, and marketing — from idea to market.',
+    title: 'Pathway from the Idea to Market',
+    body: 'Helping innovators transform ideas into products, businesses, and sustainable income opportunities.',
   },
   {
     icon: HeartHandshake,
@@ -89,7 +89,7 @@ const RESOURCES = [
   { icon: Factory, label: 'Steel & timber factories' },
   { icon: Wrench, label: 'Lathes & CNC machines' },
   { icon: Printer, label: 'Laser cutting & 3D printing' },
-  { icon: PenTool, label: 'In-house designers' },
+  { icon: PenTool, label: 'Designers' },
   { icon: Percent, label: 'Discount suppliers' },
 ]
 
@@ -130,7 +130,7 @@ export function InnovationCentrePage() {
           className="mx-auto w-32 sm:w-40"
         />
         <span
-          className="mt-6 inline-flex items-center rounded-full px-4 py-1.5 font-display text-xs uppercase tracking-wider"
+          className="mt-6 inline-flex items-center rounded-full px-5 py-2 font-display text-sm uppercase tracking-wider sm:text-base"
           style={{ backgroundColor: `${GOLD}33`, color: NAVY }}
         >
           The Dream
@@ -233,8 +233,8 @@ export function InnovationCentrePage() {
       <section className="px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-2xl sm:text-3xl">Got an idea worth building?</h2>
         <p className="mx-auto mt-3 max-w-md font-body opacity-60">
-          Get in touch with Craig to find out how The Innovation Centre can
-          help take it further.
+          Get in touch with Craig and discover how The Innovation Centre can
+          help turn your idea into reality.
         </p>
         <m.a
           whileHover={{ scale: 1.03 }}
