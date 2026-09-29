@@ -59,7 +59,10 @@ export function GoingSmartPage() {
           Going Smart will show you how to reduce your costs.
         </p>
 
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <p className="mx-auto mt-10 max-w-2xl text-left font-body text-xs uppercase tracking-wide text-white/50">
+          We also supply
+        </p>
+        <div className="mx-auto mt-3 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
           <div
             className="overflow-hidden rounded-2xl border"
             style={{ borderColor: `${GREEN}4D` }}
@@ -73,6 +76,12 @@ export function GoingSmartPage() {
                 className="aspect-[4/3] w-full object-cover"
               />
             </picture>
+            <p
+              className="px-4 py-3 text-left font-display text-sm text-white"
+              style={{ backgroundColor: NAVY }}
+            >
+              Smart Water Meters
+            </p>
           </div>
           <div
             className="overflow-hidden rounded-2xl border"
@@ -87,6 +96,12 @@ export function GoingSmartPage() {
                 className="aspect-[4/3] w-full object-cover"
               />
             </picture>
+            <p
+              className="px-4 py-3 text-left font-display text-sm text-white"
+              style={{ backgroundColor: NAVY }}
+            >
+              Solar Solutions
+            </p>
           </div>
         </div>
       </m.section>
