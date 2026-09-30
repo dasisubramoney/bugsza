@@ -17,7 +17,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-center">
           <button onClick={() => scrollTo('#top')} aria-label="Back to top">
-            <img src={logo} alt="BUGZ — Keep Rollin'" loading="lazy" className="h-14 w-auto" />
+            <img src={logo} alt="BUGZ — Keep Rollin'" loading="lazy" width={440} height={239} className="h-14 w-auto" />
           </button>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2">

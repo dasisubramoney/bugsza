@@ -24,3 +24,16 @@ Monday to Friday, 8am–5pm.
 
 Phone: +27 78 362 8387
 WhatsApp: +27 78 362 8387
+
+## Site sections
+
+- [How it works](https://bugsza.co.za/#how-it-works)
+- [Features](https://bugsza.co.za/#features)
+- [Use cases](https://bugsza.co.za/#use-cases)
+- [Pricing](https://bugsza.co.za/#pricing)
+- [FAQ](https://bugsza.co.za/#faq)
+- [Get a quote / contact](https://bugsza.co.za/#contact)
+- [The Going Smart Solutions partnership](https://bugsza.co.za/going-smart)
+- [The Innovation Centre partnership](https://bugsza.co.za/innovation-centre)
+- [Privacy policy](https://bugsza.co.za/privacy)
+- [Terms of service](https://bugsza.co.za/terms)

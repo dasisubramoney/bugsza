@@ -36,7 +36,7 @@ export function TermsPage() {
           <ArrowLeft size={16} />
           Back to BUGS
         </Link>
-        <img src={logo} alt="BUGZ" className="h-10 w-auto rounded-md" />
+        <img src={logo} alt="BUGZ" width={440} height={239} className="h-10 w-auto rounded-md" />
       </header>
 
       <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">

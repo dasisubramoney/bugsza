@@ -19,6 +19,8 @@ export function NotFoundPage() {
         transition={{ duration: 0.6, ease: 'backOut' }}
         src={logo}
         alt="BUGZ"
+        width={440}
+        height={239}
         className="w-full max-w-xs border-4 border-bugs-black shadow-hard-lg sm:max-w-sm"
       />
       <m.p

@@ -48,6 +48,8 @@ export function GoingSmartPage() {
         <img
           src={goingSmartLogo}
           alt="Going Smart Energy Solutions — You Can Trust"
+          width={900}
+          height={281}
           className="mx-auto w-full max-w-md"
         />
         <h1 className="mt-10 font-display text-4xl leading-tight text-white sm:text-5xl">
@@ -73,6 +75,8 @@ export function GoingSmartPage() {
                 src={smartMeterJpeg}
                 alt="Smart utility meters tracking real-time electricity usage"
                 loading="lazy"
+                width={554}
+                height={360}
                 className="aspect-[4/3] w-full object-cover"
               />
             </picture>
@@ -93,6 +97,8 @@ export function GoingSmartPage() {
                 src={energyEfficientHomeJpeg}
                 alt="An energy-efficient home with solar panels after a Going Smart audit"
                 loading="lazy"
+                width={525}
+                height={350}
                 className="aspect-[4/3] w-full object-cover"
               />
             </picture>

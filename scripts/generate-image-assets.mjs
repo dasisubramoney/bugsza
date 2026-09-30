@@ -75,9 +75,13 @@ console.log('OG image written (1200x630)')
 // the win — WebP on top of that is the rest.
 const RESIZE_JOBS = [
   {
+    // 440w covers every usage of this logo: the largest is PartnersRow's
+    // card box (Lighthouse measures it at ~437px on mobile), everything
+    // else (nav/footer/legal pages) is under 110px. It used to ship at
+    // 1000w for no usage that needed it.
     src: 'src/assets/Bugz_co_za_Updated_Logo.png',
     base: 'src/assets/Bugz_co_za_Updated_Logo',
-    width: 1000,
+    width: 440,
   },
   {
     src: 'src/assets/Bugs_product.jpeg',
@@ -90,9 +94,34 @@ const RESIZE_JOBS = [
     width: 900,
   },
   {
+    // PartnersRow shows this logo as a ~220px-wide badge, far smaller than
+    // the GoingSmartPage hero (max-w-md) that the 900w file above serves.
+    src: 'src/assets/Going_Smart.png',
+    base: 'src/assets/Going_Smart-badge',
+    width: 500,
+  },
+  {
     src: 'src/assets/Innovation_Centre_Logo.png',
     base: 'src/assets/Innovation_Centre_Logo',
     width: 600,
+  },
+  {
+    // PartnersRow shows this logo as a ~96px badge, far smaller than the
+    // InnovationCentrePage hero (w-40) that the 600w file above serves.
+    // Flat-color logo art holds up fine at a lower webp quality.
+    src: 'src/assets/Innovation_Centre_Logo.png',
+    base: 'src/assets/Innovation_Centre_Logo-badge',
+    width: 300,
+    quality: 70,
+  },
+  {
+    // Smaller 1x candidate for the same badge, for srcset — Lighthouse's
+    // mobile viewport renders this logo at ~80px (below the sm: breakpoint
+    // that raises it to 96px), so the 300w file alone is 2x oversized there.
+    src: 'src/assets/Innovation_Centre_Logo.png',
+    base: 'src/assets/Innovation_Centre_Logo-badge-sm',
+    width: 160,
+    quality: 40,
   },
   {
     src: 'src/assets/innovation-centre/workshop-1.jpg',
@@ -126,17 +155,17 @@ const RESIZE_JOBS = [
   },
 ]
 
-for (const { src, base, width } of RESIZE_JOBS) {
+for (const { src, base, width, quality = 82 } of RESIZE_JOBS) {
   const img = sharp(src).resize({ width, withoutEnlargement: true })
   const isJpeg = src.toLowerCase().endsWith('.jpeg') || src.toLowerCase().endsWith('.jpg')
 
   await img
     .clone()
-    .webp({ quality: 82 })
+    .webp({ quality })
     .toFile(`${base}.webp`)
 
   if (isJpeg) {
-    await img.clone().jpeg({ quality: 82, mozjpeg: true }).toFile(`${base}.resized.jpeg`)
+    await img.clone().jpeg({ quality, mozjpeg: true }).toFile(`${base}.resized.jpeg`)
   } else {
     await img.clone().png({ compressionLevel: 9 }).toFile(`${base}.resized.png`)
   }

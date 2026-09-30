@@ -114,6 +114,8 @@ export function InnovationCentrePage() {
         <img
           src={innovationCentreLogo}
           alt="The Innovation Centre"
+          width={600}
+          height={600}
           className="h-12 w-12 sm:h-14 sm:w-14"
         />
       </header>
@@ -127,6 +129,8 @@ export function InnovationCentrePage() {
         <img
           src={innovationCentreLogo}
           alt="The Innovation Centre"
+          width={600}
+          height={600}
           className="mx-auto w-32 sm:w-40"
         />
         <span
@@ -228,6 +232,8 @@ export function InnovationCentrePage() {
                     src={jpeg}
                     alt={alt}
                     loading="lazy"
+                    width={800}
+                    height={600}
                     className="aspect-[4/3] w-full object-cover"
                   />
                 </picture>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, m } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useSmoothScroll } from '../lib/SmoothScroll'
@@ -10,6 +10,8 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [active, setActive] = useState<SectionId | null>(null)
+  const navRef = useRef<HTMLElement>(null)
+  const [underline, setUnderline] = useState<{ left: number; width: number } | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -38,6 +40,19 @@ export function Nav() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!active || !navRef.current) {
+      setUnderline(null)
+      return
+    }
+    const el = navRef.current.querySelector<HTMLElement>(`[data-nav-id="${active}"]`)
+    if (!el) {
+      setUnderline(null)
+      return
+    }
+    setUnderline({ left: el.offsetLeft + 12, width: el.offsetWidth - 24 })
+  }, [active])
+
   const handleNavClick = (id: string) => {
     setMenuOpen(false)
     scrollTo(`#${id}`)
@@ -63,27 +78,28 @@ export function Nav() {
           className="flex items-center"
           aria-label="BUGS — back to top"
         >
-          <img src={logo} alt="BUGZ — Keep Rollin'" className="h-12 w-auto sm:h-14" />
+          <img src={logo} alt="BUGZ — Keep Rollin'" width={440} height={239} className="h-12 w-auto sm:h-14" />
         </button>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav ref={navRef} className="relative hidden items-center gap-1 lg:flex">
           {NAV_SECTIONS.map(({ id, label }) => (
             <button
               key={id}
+              data-nav-id={id}
               onClick={() => handleNavClick(id)}
               className="group relative px-4 py-2 font-body text-sm font-semibold text-bugs-black"
             >
               {label}
               <span className="absolute inset-x-3 -bottom-0.5 h-0.5 origin-left scale-x-0 bg-bugs-black transition-transform duration-300 ease-out group-hover:scale-x-100" />
-              {active === id && (
-                <m.span
-                  layoutId="nav-underline"
-                  className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-bugs-black"
-                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                />
-              )}
             </button>
           ))}
+          {underline && (
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-0.5 h-0.5 bg-bugs-black transition-[left,width] duration-300 ease-out"
+              style={{ left: underline.left, width: underline.width }}
+            />
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
