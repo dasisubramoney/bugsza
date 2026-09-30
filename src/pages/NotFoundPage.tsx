@@ -19,7 +19,7 @@ export function NotFoundPage() {
         transition={{ duration: 0.6, ease: 'backOut' }}
         src={logo}
         alt="BUGZ"
-        className="w-full max-w-xs rounded-2xl border-4 border-bugs-black shadow-hard-lg sm:max-w-sm"
+        className="w-full max-w-xs border-4 border-bugs-black shadow-hard-lg sm:max-w-sm"
       />
       <m.p
         initial={{ opacity: 0, y: 12 }}
@@ -53,7 +53,7 @@ export function NotFoundPage() {
       >
         <Link
           to="/"
-          className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard transition-transform hover:scale-[1.03]"
+          className="mt-8 inline-flex items-center gap-2 border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg"
         >
           Back to the BUGS homepage
         </Link>

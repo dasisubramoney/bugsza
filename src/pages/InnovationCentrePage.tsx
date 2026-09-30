@@ -130,10 +130,15 @@ export function InnovationCentrePage() {
           className="mx-auto w-32 sm:w-40"
         />
         <span
-          className="mt-6 inline-flex items-center rounded-full px-5 py-2 font-display text-sm uppercase tracking-wider sm:text-base"
-          style={{ backgroundColor: `${GOLD}33`, color: NAVY }}
+          className="mt-6 inline-block -skew-x-12 border-2 px-5 py-2"
+          style={{ backgroundColor: `${GOLD}33`, borderColor: NAVY }}
         >
-          The Dream
+          <span
+            className="inline-block skew-x-12 font-display text-sm uppercase tracking-wider sm:text-base"
+            style={{ color: NAVY }}
+          >
+            The Dream
+          </span>
         </span>
         <h1 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
           Where ideas become real.
@@ -162,14 +167,14 @@ export function InnovationCentrePage() {
           {FEATURES.map(({ icon: Icon, title, body }) => (
             <div
               key={title}
-              className="w-full rounded-2xl border bg-white p-7 shadow-sm sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
-              style={{ borderColor: `${NAVY}1A` }}
+              className="w-full border-2 bg-white p-7 transition-transform duration-200 hover:-translate-y-1 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+              style={{ borderColor: NAVY, boxShadow: `6px 6px 0 0 ${NAVY}` }}
             >
               <span
-                className="flex h-12 w-12 items-center justify-center rounded-full"
+                className="flex h-12 w-12 rotate-45 items-center justify-center"
                 style={{ backgroundColor: `${GREEN}1A`, color: GREEN }}
               >
-                <Icon size={22} />
+                <Icon size={20} className="-rotate-45" />
               </span>
               <h3 className="mt-5 font-display text-lg">{title}</h3>
               <p className="mt-2 font-body text-sm opacity-70">{body}</p>
@@ -187,11 +192,13 @@ export function InnovationCentrePage() {
             {RESOURCES.map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="inline-flex items-center gap-2 rounded-full border bg-[#FAFAF8] px-5 py-2.5 font-body text-sm opacity-80"
-                style={{ borderColor: `${NAVY}26` }}
+                className="inline-block -skew-x-12 border-2 bg-[#FAFAF8] px-5 py-2.5"
+                style={{ borderColor: `${NAVY}40` }}
               >
-                <Icon size={16} style={{ color: GREEN }} />
-                {label}
+                <span className="inline-flex skew-x-12 items-center gap-2 font-body text-sm opacity-80">
+                  <Icon size={16} style={{ color: GREEN }} />
+                  {label}
+                </span>
               </span>
             ))}
           </div>
@@ -212,8 +219,8 @@ export function InnovationCentrePage() {
             {WORKSHOP_PHOTOS.map(({ webp, jpeg, alt }) => (
               <div
                 key={jpeg}
-                className="overflow-hidden rounded-2xl border shadow-sm"
-                style={{ borderColor: `${NAVY}1A` }}
+                className="overflow-hidden border-2"
+                style={{ borderColor: NAVY, boxShadow: `6px 6px 0 0 ${NAVY}` }}
               >
                 <picture>
                   <source srcSet={webp} type="image/webp" />
@@ -236,16 +243,14 @@ export function InnovationCentrePage() {
           Get in touch with Craig and discover how The Innovation Centre can
           help turn your idea into reality.
         </p>
-        <m.a
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
+        <a
           href="tel:+27828762489"
-          className="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 font-display text-sm"
-          style={{ backgroundColor: GOLD, color: NAVY }}
+          className="mt-8 inline-flex items-center gap-2 border-2 px-8 py-4 font-display text-sm transition-transform duration-150 hover:-translate-x-1 hover:-translate-y-1"
+          style={{ backgroundColor: GOLD, color: NAVY, borderColor: NAVY, boxShadow: `4px 4px 0 0 ${NAVY}` }}
         >
           <Phone size={18} />
           Call Craig — 082 876 2489
-        </m.a>
+        </a>
       </section>
 
       <footer className="border-t px-4 py-8 text-center sm:px-6 lg:px-8" style={{ borderColor: `${NAVY}1A` }}>

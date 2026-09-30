@@ -42,7 +42,7 @@ const PHONE_PATTERN = /^\+?[0-9\s]{7,15}$/
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const inputClass =
-  'rounded-lg border-2 border-bugs-black/20 px-4 py-3 font-body text-sm text-bugs-black outline-none focus:border-bugs-black'
+  'border-2 border-bugs-black/20 px-4 py-3 font-body text-sm text-bugs-black outline-none focus:border-bugs-black'
 const errorInputClass = 'border-red-400 focus:border-red-500'
 const labelClass = 'font-body text-xs font-semibold uppercase tracking-wide text-bugs-black/50'
 const fieldErrorClass = '-mt-3 font-body text-xs text-red-600'
@@ -63,7 +63,7 @@ function ToggleGroup({
           key={opt.value}
           type="button"
           onClick={() => onChange(opt.value)}
-          className={`rounded-full border-2 px-4 py-2 font-body text-sm transition-colors ${
+          className={`border-2 px-4 py-2 font-body text-sm transition-colors ${
             value === opt.value
               ? 'border-bugs-black bg-bugs-black text-bugs-white'
               : 'border-bugs-black/20 text-bugs-black hover:border-bugs-black/50'
@@ -201,48 +201,40 @@ export function CTAContact() {
         </Reveal>
 
         <Reveal className="mt-12 grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
-          <div className="group relative">
-            <div className="absolute -inset-1 rounded-2xl bg-bugs-black opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40" />
-            <div className="relative flex flex-col gap-4 rounded-2xl border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 group-hover:-translate-y-1">
+          <div className="flex flex-col gap-4 border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 hover:-translate-y-1">
               <h3 className="font-display text-xl text-bugs-black">Talk to us directly</h3>
               <p className="font-body text-sm text-bugs-black/80">
                 Message us on WhatsApp or give us a call — we're happy to help.
               </p>
-              <m.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 rounded-full bg-bugs-black px-6 py-4 font-display text-sm text-bugs-white"
+                className="flex items-center justify-center gap-2 border-2 border-bugs-black bg-bugs-black px-6 py-4 font-display text-sm text-bugs-white shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none"
               >
                 <WhatsAppIcon className="h-[18px] w-[18px]" />
                 Chat on WhatsApp
-              </m.a>
-              <m.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              </a>
+              <a
                 href={`tel:${PHONE_E164}`}
-                className="flex items-center justify-center gap-2 rounded-full border-2 border-bugs-black px-6 py-4 font-display text-sm text-bugs-black"
+                className="flex items-center justify-center gap-2 border-2 border-bugs-black px-6 py-4 font-display text-sm text-bugs-black transition-colors duration-150 hover:bg-bugs-black hover:text-bugs-white"
               >
                 <Phone size={18} />
                 Call Us
-              </m.a>
+              </a>
               <p className="flex items-center justify-center gap-2 font-body text-xs text-bugs-black/50">
                 <Clock size={14} />
                 {HOURS_DISPLAY}
               </p>
-            </div>
           </div>
 
-          <div className="group relative">
-            <div className="absolute -inset-1 rounded-2xl bg-bugs-black opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-40" />
+          <div>
             <form
               id="contact-form"
               name="contact"
               onSubmit={handleSubmit}
               noValidate
-              className="relative flex flex-col gap-4 rounded-2xl border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 group-hover:-translate-y-1"
+              className="flex flex-col gap-4 border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 hover:-translate-y-1"
             >
               <h3 className="font-display text-xl text-bugs-black">Or send a message</h3>
 
@@ -431,7 +423,7 @@ export function CTAContact() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="flex items-center gap-2 overflow-hidden rounded-lg border-2 border-red-400 bg-red-50 px-4 py-3 font-body text-sm text-red-700"
+                    className="flex items-center gap-2 overflow-hidden border-2 border-red-400 bg-red-50 px-4 py-3 font-body text-sm text-red-700"
                   >
                     <AlertCircle size={16} className="flex-shrink-0" />
                     Something went wrong sending your message. Please try
@@ -440,19 +432,17 @@ export function CTAContact() {
                 )}
               </AnimatePresence>
 
-              <m.button
-                whileHover={status === 'submitting' ? undefined : { scale: 1.02 }}
-                whileTap={status === 'submitting' ? undefined : { scale: 0.98 }}
+              <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="rounded-full bg-bugs-yellow px-6 py-4 font-display text-sm text-bugs-black shadow-hard disabled:cursor-not-allowed disabled:opacity-60"
+                className="border-2 border-bugs-black bg-bugs-yellow px-6 py-4 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-hard"
               >
                 {status === 'submitting'
                   ? 'Sending…'
                   : status === 'success'
                     ? 'Thanks — we’ll be in touch'
                     : 'Send Message'}
-              </m.button>
+              </button>
             </form>
           </div>
         </Reveal>

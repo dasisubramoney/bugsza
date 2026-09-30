@@ -16,9 +16,11 @@ export function Hero() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-5 inline-flex items-center rounded-full bg-bugs-black px-4 py-2 font-display text-[10px] uppercase tracking-wider text-white sm:text-xs"
+            className="mb-5 inline-block border-2 border-bugs-black bg-bugs-black px-5 py-2"
           >
-            12V/24V DC &middot; Backup Power &middot; Gates &bull; Garages
+            <span className="font-display text-[10px] uppercase tracking-wider text-white sm:text-xs">
+              12V/24V DC &middot; Backup Power &middot; Gates &bull; Garages
+            </span>
           </m.div>
           <m.h1
             initial={{ opacity: 0, y: 24 }}
@@ -43,22 +45,18 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
-            <m.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+            <button
               onClick={() => scrollTo('#contact-form')}
-              className="rounded-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard sm:text-base"
+              className="border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none sm:text-base"
             >
               Order Yours Today
-            </m.button>
-            <m.button
-              whileHover={{ scale: 1.04, backgroundColor: '#0A0A0A', color: '#FFFFFF' }}
-              whileTap={{ scale: 0.97 }}
+            </button>
+            <button
               onClick={() => scrollTo('#how-it-works')}
-              className="rounded-full border-2 border-bugs-black px-8 py-4 font-display text-sm text-bugs-black sm:text-base"
+              className="border-2 border-bugs-black bg-transparent px-8 py-4 font-display text-sm text-bugs-black transition-colors duration-150 hover:bg-bugs-black hover:text-bugs-white sm:text-base"
             >
               See How It Works
-            </m.button>
+            </button>
           </m.div>
         </div>
 

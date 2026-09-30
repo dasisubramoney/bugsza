@@ -32,7 +32,7 @@ export function GoingSmartPage() {
         <a
           href="tel:+27828762489"
           style={{ borderColor: GREEN }}
-          className="hidden items-center gap-2 rounded-full border-2 px-5 py-2 font-display text-sm text-white transition-colors hover:opacity-80 sm:inline-flex"
+          className="hidden items-center gap-2 border-2 px-5 py-2 font-display text-sm text-white transition-colors hover:opacity-80 sm:inline-flex"
         >
           <Phone size={15} />
           082 876 2489
@@ -48,7 +48,7 @@ export function GoingSmartPage() {
         <img
           src={goingSmartLogo}
           alt="Going Smart Energy Solutions — You Can Trust"
-          className="mx-auto w-full max-w-md rounded-xl"
+          className="mx-auto w-full max-w-md"
         />
         <h1 className="mt-10 font-display text-4xl leading-tight text-white sm:text-5xl">
           Is your electricity and water bill out of control?
@@ -64,8 +64,8 @@ export function GoingSmartPage() {
         </p>
         <div className="mx-auto mt-3 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
           <div
-            className="overflow-hidden rounded-2xl border"
-            style={{ borderColor: `${GREEN}4D` }}
+            className="overflow-hidden border-2"
+            style={{ borderColor: GREEN, boxShadow: `6px 6px 0 0 ${GREEN}` }}
           >
             <picture>
               <source srcSet={smartMeterWebp} type="image/webp" />
@@ -84,8 +84,8 @@ export function GoingSmartPage() {
             </p>
           </div>
           <div
-            className="overflow-hidden rounded-2xl border"
-            style={{ borderColor: `${GREEN}4D` }}
+            className="overflow-hidden border-2"
+            style={{ borderColor: GREEN, boxShadow: `6px 6px 0 0 ${GREEN}` }}
           >
             <picture>
               <source srcSet={energyEfficientHomeWebp} type="image/webp" />
@@ -109,14 +109,14 @@ export function GoingSmartPage() {
       <section className="border-t border-white/10 bg-white/5">
         <div className="mx-auto grid max-w-5xl gap-6 px-4 py-16 sm:grid-cols-2 sm:px-6 lg:px-8">
           <div
-            className="rounded-2xl border p-8"
-            style={{ borderColor: `${GREEN}4D`, backgroundColor: NAVY }}
+            className="border-2 p-8 transition-transform duration-200 hover:-translate-y-1"
+            style={{ borderColor: GREEN, backgroundColor: NAVY, boxShadow: `6px 6px 0 0 ${GREEN}` }}
           >
             <span
-              className="flex h-12 w-12 items-center justify-center rounded-full"
+              className="flex h-12 w-12 rotate-45 items-center justify-center"
               style={{ backgroundColor: `${GREEN}26`, color: GREEN }}
             >
-              <Search size={22} />
+              <Search size={20} className="-rotate-45" />
             </span>
             <h3 className="mt-6 font-display text-xl text-white">Smart Tech Audit</h3>
             <p className="mt-3 font-body text-white/70">
@@ -125,14 +125,14 @@ export function GoingSmartPage() {
           </div>
 
           <div
-            className="rounded-2xl border p-8"
-            style={{ borderColor: `${GREEN}4D`, backgroundColor: NAVY }}
+            className="border-2 p-8 transition-transform duration-200 hover:-translate-y-1"
+            style={{ borderColor: GREEN, backgroundColor: NAVY, boxShadow: `6px 6px 0 0 ${GREEN}` }}
           >
             <span
-              className="flex h-12 w-12 items-center justify-center rounded-full"
+              className="flex h-12 w-12 rotate-45 items-center justify-center"
               style={{ backgroundColor: `${GREEN}26`, color: GREEN }}
             >
-              <Lightbulb size={22} />
+              <Lightbulb size={20} className="-rotate-45" />
             </span>
             <h3 className="mt-6 font-display text-xl text-white">Practical Solutions</h3>
             <p className="mt-3 font-body text-white/70">
@@ -148,16 +148,14 @@ export function GoingSmartPage() {
           Take control of your electricity and water costs today
         </h2>
         <p className="mt-3 font-body text-white/60">Speak to Craig to get started.</p>
-        <m.a
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
+        <a
           href="tel:+27828762489"
-          style={{ backgroundColor: GREEN }}
-          className="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 font-display text-sm"
+          style={{ backgroundColor: GREEN, borderColor: NAVY, boxShadow: `4px 4px 0 0 ${NAVY}` }}
+          className="mt-8 inline-flex items-center gap-2 border-2 px-8 py-4 font-display text-sm transition-transform duration-150 hover:-translate-x-1 hover:-translate-y-1"
         >
           <Phone size={18} />
           Call Craig — 082 876 2489
-        </m.a>
+        </a>
       </section>
 
       <footer className="border-t border-white/10 px-4 py-8 text-center sm:px-6 lg:px-8">

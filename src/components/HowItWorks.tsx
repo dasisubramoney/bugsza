@@ -52,14 +52,11 @@ export function HowItWorks() {
         </Reveal>
 
         <Reveal
-          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3"
+          className="mt-10 grid grid-cols-1 divide-y divide-bugs-white/10 border-y border-bugs-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
           stagger={0.1}
         >
           {INSTALL_INFO.map(({ icon: Icon, label, detail }) => (
-            <div
-              key={label}
-              className="flex items-start gap-3 rounded-xl border border-bugs-orange/30 bg-bugs-orange/10 px-5 py-4"
-            >
+            <div key={label} className="flex items-start gap-3 px-1 py-5 sm:px-6">
               <Icon className="h-5 w-5 flex-shrink-0 text-bugs-orange" strokeWidth={2} />
               <div>
                 <p className="font-display text-sm text-bugs-white">{label}</p>
@@ -74,15 +71,15 @@ export function HowItWorks() {
           stagger={0.18}
         >
           {STEPS.map(({ number, title, body }) => (
-            <div key={number} className="group relative h-full">
-              <div className="absolute -inset-1 rounded-2xl bg-bugs-orange opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-60" />
-              <div className="relative flex h-full flex-col rounded-2xl border-2 border-bugs-orange bg-bugs-black p-8 transition-transform duration-300 group-hover:-translate-y-1">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bugs-yellow font-display text-lg text-bugs-black">
-                  {number}
-                </span>
-                <h3 className="mt-6 font-display text-xl text-bugs-white">{title}</h3>
-                <p className="mt-3 font-body text-bugs-white/70">{body}</p>
-              </div>
+            <div
+              key={number}
+              className="group flex h-full flex-col border-2 border-bugs-orange bg-white/[0.04] p-8 shadow-[6px_6px_0_0_#F7941D] transition-all duration-200 hover:-translate-y-1 hover:shadow-[10px_10px_0_0_#F7941D]"
+            >
+              <span className="flex h-12 w-12 rotate-45 items-center justify-center bg-bugs-yellow">
+                <span className="-rotate-45 font-display text-lg text-bugs-black">{number}</span>
+              </span>
+              <h3 className="mt-6 font-display text-xl text-bugs-white">{title}</h3>
+              <p className="mt-3 font-body text-bugs-white/70">{body}</p>
             </div>
           ))}
         </Reveal>

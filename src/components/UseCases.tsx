@@ -42,8 +42,10 @@ export function UseCases() {
           stagger={0.15}
         >
           {USE_CASES.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="flex flex-col items-start">
-              <Icon className="h-10 w-10 text-bugs-orange" strokeWidth={1.75} />
+            <div key={title} className="flex flex-col items-start border-l-2 border-bugs-orange/40 pl-5">
+              <div className="flex h-11 w-11 rotate-45 items-center justify-center bg-bugs-orange">
+                <Icon className="h-5 w-5 -rotate-45 text-bugs-black" strokeWidth={1.75} />
+              </div>
               <h3 className="mt-5 font-display text-lg text-bugs-white">{title}</h3>
               <p className="mt-2 font-body text-bugs-white/70">{body}</p>
             </div>

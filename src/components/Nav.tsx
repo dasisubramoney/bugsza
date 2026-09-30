@@ -49,6 +49,14 @@ export function Nav() {
         scrolled ? 'shadow-[0_2px_0_0_#0A0A0A]' : ''
       }`}
     >
+      <div
+        aria-hidden="true"
+        className="h-1.5 w-full"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(135deg, #0A0A0A 0 10px, #FFC709 10px 20px)',
+        }}
+      />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <button
           onClick={() => scrollTo('#top')}
@@ -79,20 +87,18 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <m.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
+          <button
             onClick={() => {
               setMenuOpen(false)
               scrollTo('#contact-form')
             }}
-            className="rounded-full bg-bugs-yellow px-5 py-2 font-display text-sm text-bugs-black shadow-hard sm:px-6 sm:py-2.5"
+            className="border-2 border-bugs-black bg-bugs-yellow px-5 py-2 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none sm:px-6 sm:py-2.5"
           >
             Order Yours
-          </m.button>
+          </button>
 
           <button
-            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-bugs-black text-bugs-black lg:hidden"
+            className="flex h-10 w-10 flex-shrink-0 items-center justify-center border-2 border-bugs-black text-bugs-black lg:hidden"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -110,12 +116,12 @@ export function Nav() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden bg-white lg:hidden"
           >
-            <div className="flex flex-col gap-1 px-4 pb-4">
+            <div className="flex flex-col gap-1 border-t-2 border-bugs-black/10 px-4 pb-4 pt-2">
               {NAV_SECTIONS.map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => handleNavClick(id)}
-                  className="rounded-lg px-3 py-3 text-left font-body font-semibold text-bugs-black hover:bg-black/5"
+                  className="border-l-4 border-transparent py-3 pl-3 text-left font-body font-semibold text-bugs-black transition-colors hover:border-bugs-yellow hover:bg-black/5"
                 >
                   {label}
                 </button>

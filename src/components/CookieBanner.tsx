@@ -29,22 +29,18 @@ export function CookieBanner() {
               .
             </p>
             <div className="flex flex-shrink-0 items-center gap-3">
-              <m.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              <button
                 onClick={decline}
-                className="rounded-full border-2 border-bugs-white/30 px-5 py-2.5 font-display text-sm text-bugs-white transition-colors hover:border-bugs-white"
+                className="border-2 border-bugs-white/30 px-5 py-2.5 font-display text-sm text-bugs-white transition-colors hover:border-bugs-white"
               >
                 Decline
-              </m.button>
-              <m.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+              </button>
+              <button
                 onClick={accept}
-                className="rounded-full bg-bugs-yellow px-5 py-2.5 font-display text-sm text-bugs-black shadow-hard"
+                className="border-2 border-bugs-black bg-bugs-yellow px-5 py-2.5 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none"
               >
                 Accept
-              </m.button>
+              </button>
             </div>
           </div>
         </m.div>

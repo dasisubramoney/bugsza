@@ -41,7 +41,7 @@ export function Footer() {
                 rel={placeholder ? undefined : 'noreferrer'}
                 aria-label={label}
                 title={placeholder ? `${label} — placeholder link` : label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-bugs-white/20 text-bugs-white/70 transition-colors hover:border-bugs-yellow hover:text-bugs-yellow"
+                className="flex h-10 w-10 items-center justify-center border-2 border-bugs-white/20 text-bugs-white/70 transition-colors hover:border-bugs-yellow hover:text-bugs-yellow"
               >
                 <Icon className="h-4 w-4" />
               </a>

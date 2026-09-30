@@ -76,7 +76,7 @@ export function FAQ() {
                     <m.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
-                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-bugs-orange text-bugs-black"
+                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center border-2 border-bugs-black bg-bugs-orange text-bugs-black"
                     >
                       <ChevronDown size={18} />
                     </m.span>
