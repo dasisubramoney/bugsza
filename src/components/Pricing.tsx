@@ -32,7 +32,7 @@ export function Pricing() {
                 src={productPhotoJpeg}
                 alt="The BUGS unit — a 12V/24V DC backup power box for gates and garages"
                 width={900}
-                height={900}
+                height={1200}
                 className="w-full"
                 loading="lazy"
               />
