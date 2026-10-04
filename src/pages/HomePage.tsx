@@ -9,6 +9,7 @@ import { UseCases } from '../components/UseCases'
 import { FAQ } from '../components/FAQ'
 import { Pricing } from '../components/Pricing'
 import { CTAContact } from '../components/CTAContact'
+import { DeveloperBanner } from '../components/DeveloperBanner'
 import { Footer } from '../components/Footer'
 import { WhatsAppButton } from '../components/WhatsAppButton'
 import { StructuredData } from '../components/StructuredData'
@@ -35,6 +36,7 @@ export function HomePage() {
         <Pricing />
         <CTAContact />
       </main>
+      <DeveloperBanner />
       <Footer />
       <WhatsAppButton />
     </SmoothScrollProvider>

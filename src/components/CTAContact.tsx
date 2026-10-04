@@ -193,7 +193,16 @@ export function CTAContact() {
   return (
     <section id="contact" className="bg-bugs-yellow py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
+        <Reveal className="text-center">
+          <p className="font-display text-sm uppercase tracking-widest text-bugs-black/60">
+            Contact
+          </p>
+          <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-black sm:text-4xl">
+            Get in touch
+          </h2>
+        </Reveal>
+
+        <Reveal className="mt-12 grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
           <div className="flex flex-col gap-4 border-4 border-bugs-black bg-bugs-white p-8 shadow-hard transition-transform duration-300 hover:-translate-y-1">
               <h3 className="font-display text-xl text-bugs-black">Talk to us directly</h3>
               <p className="font-body text-sm text-bugs-black/80">
