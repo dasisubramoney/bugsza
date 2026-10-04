@@ -144,6 +144,14 @@ const RESIZE_JOBS = [
     width: 800,
   },
   {
+    // White-on-transparent recolor of the Athea Digital logo (original was
+    // black on a white background) so it reads against the DeveloperBanner's
+    // dark background. Displayed around 100px tall, so 300w covers retina.
+    src: 'src/assets/athea-digital-logo.png',
+    base: 'src/assets/athea-digital-logo',
+    width: 300,
+  },
+  {
     src: 'src/assets/going-smart/smart-meter.jpg',
     base: 'src/assets/going-smart/smart-meter',
     width: 700,
