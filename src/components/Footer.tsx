@@ -52,6 +52,15 @@ export function Footer() {
         <div className="mt-10 flex flex-col gap-4 border-t border-bugs-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between sm:pr-20">
           <p className="font-body text-xs text-bugs-white/40">
             © {new Date().getFullYear()} BUGZ. Back Up Gate Solution. All rights reserved.
+            {' '}
+            <a
+              href="https://atheadigital.co.za/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-bugs-white"
+            >
+              Site by Athea Digital
+            </a>
           </p>
           <div className="flex items-center gap-4 font-body text-xs text-bugs-white/40">
             <Link to="/privacy" className="hover:text-bugs-white">

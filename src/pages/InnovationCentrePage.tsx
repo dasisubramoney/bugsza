@@ -274,6 +274,16 @@ export function InnovationCentrePage() {
         >
           ← Back to the BUGS homepage
         </Link>
+        <p className="mt-3 font-body text-xs opacity-40">
+          <a
+            href="https://atheadigital.co.za/"
+            target="_blank"
+            rel="noreferrer"
+            className="transition-opacity hover:opacity-100"
+          >
+            Site by Athea Digital
+          </a>
+        </p>
       </footer>
     </div>
   )

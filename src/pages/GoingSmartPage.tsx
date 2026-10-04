@@ -171,6 +171,16 @@ export function GoingSmartPage() {
         >
           ← Back to the BUGS homepage
         </Link>
+        <p className="mt-3 font-body text-xs text-white/30">
+          <a
+            href="https://atheadigital.co.za/"
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-white"
+          >
+            Site by Athea Digital
+          </a>
+        </p>
       </footer>
     </div>
   )
