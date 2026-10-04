@@ -110,7 +110,7 @@ export function Nav() {
             }}
             className="border-2 border-bugs-black bg-bugs-yellow px-5 py-2 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none sm:px-6 sm:py-2.5"
           >
-            Order Yours
+            Order here
           </button>
 
           <button

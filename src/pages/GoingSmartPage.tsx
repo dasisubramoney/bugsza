@@ -61,7 +61,7 @@ export function GoingSmartPage() {
           Going Smart will show you how to reduce your costs.
         </p>
 
-        <p className="mx-auto mt-10 max-w-2xl text-left font-body text-xs uppercase tracking-wide text-white/50">
+        <p className="mx-auto mt-10 max-w-2xl text-left font-body text-sm uppercase tracking-wide text-white/50">
           We also supply
         </p>
         <div className="mx-auto mt-3 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -81,7 +81,7 @@ export function GoingSmartPage() {
               />
             </picture>
             <p
-              className="px-4 py-3 text-left font-display text-sm text-white"
+              className="px-4 py-3 text-left font-display text-lg text-white"
               style={{ backgroundColor: NAVY }}
             >
               Smart Water Meters
@@ -103,7 +103,7 @@ export function GoingSmartPage() {
               />
             </picture>
             <p
-              className="px-4 py-3 text-left font-display text-sm text-white"
+              className="px-4 py-3 text-left font-display text-lg text-white"
               style={{ backgroundColor: NAVY }}
             >
               Solar Solutions
@@ -142,7 +142,7 @@ export function GoingSmartPage() {
             </span>
             <h3 className="mt-6 font-display text-xl text-white">Practical Solutions</h3>
             <p className="mt-3 font-body text-white/70">
-              Then we give you practical, tailored solutions to bring your
+              We give you practical, tailored solutions to bring your
               monthly electricity and water bill down for good.
             </p>
           </div>

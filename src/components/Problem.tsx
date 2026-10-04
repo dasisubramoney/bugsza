@@ -1,21 +1,21 @@
-import { BatteryWarning, PowerOff, Lock } from 'lucide-react'
+import { BatteryWarning, PowerOff, ShieldCheck } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 
 const PROBLEMS = [
   {
     icon: PowerOff,
-    title: 'No motor power',
-    body: 'Load shedding or an outage cuts the mains — and your gate motor has nothing left to run on.',
-  },
-  {
-    icon: Lock,
-    title: 'Stuck on the wrong side',
-    body: 'Manual override means getting out of the car, in the dark, in the rain, to muscle a heavy gate by hand.',
+    title: 'No Gate Power',
+    body: 'Load shedding or an outage cuts the mains — and your gate stops working.',
   },
   {
     icon: BatteryWarning,
-    title: 'No backup plan',
-    body: 'Most gate motors have a small internal battery — and it only lasts so many cycles before it, too, gives up.',
+    title: 'BUGS is essential',
+    body: 'Most gate motors have a small internal battery and this soon runs flat.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Safety First',
+    body: 'Safety is restored when the BUGS Box is plugged in.',
   },
 ]
 
@@ -28,7 +28,7 @@ export function Problem() {
             The Problem
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-black sm:text-4xl">
-            When the power goes, most gates just stop.
+            When the power goes out, most gates stop working.
           </h2>
         </Reveal>
 

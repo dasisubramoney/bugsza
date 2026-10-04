@@ -34,7 +34,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl font-body text-xl text-bugs-black/80 sm:text-2xl"
+            className="mx-auto mt-6 max-w-xl font-body text-xl text-bugs-black/80 sm:text-2xl lg:text-3xl"
           >
             A flat battery or power outage leaves most electric gates dead,
             posing a security threat.
@@ -49,7 +49,7 @@ export function Hero() {
               onClick={() => scrollTo('#contact-form')}
               className="border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none sm:text-base"
             >
-              Order Yours Today
+              Order here
             </button>
             <button
               onClick={() => scrollTo('#how-it-works')}

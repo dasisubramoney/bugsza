@@ -5,7 +5,7 @@ import { CALLOUT_FEE_DISPLAY, SERVICE_AREA_DISPLAY } from '../lib/businessInfo'
 const INSTALL_INFO = [
   {
     icon: Wrench,
-    label: 'Professional install',
+    label: 'Professional Installation',
     detail: 'Professionally installed by a BUGS accredited agent.',
   },
   {
@@ -23,13 +23,13 @@ const INSTALL_INFO = [
 const STEPS = [
   {
     number: '01',
-    title: 'Carry it to the gate motor',
-    body: 'Grab BUGS and bring it straight to your gate or garage motor.',
+    title: 'Carry to the gate motor',
+    body: 'Pick up the BUGS and carry it to the gate.',
   },
   {
     number: '02',
     title: 'Plug it in — the gate works again',
-    body: 'Connect it to the motor and you’re back in business, straight away.',
+    body: 'Plug into the socket, and your power is restored.',
   },
   {
     number: '03',

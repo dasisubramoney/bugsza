@@ -58,7 +58,7 @@ export function Pricing() {
               onClick={() => scrollTo('#contact-form')}
               className="mt-8 w-full border-2 border-bugs-black bg-bugs-yellow px-8 py-4 font-display text-sm text-bugs-black shadow-hard transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-hard-lg active:translate-x-0 active:translate-y-0 active:shadow-none"
             >
-              Order Yours Today
+              Order here
             </button>
           </div>
         </Reveal>

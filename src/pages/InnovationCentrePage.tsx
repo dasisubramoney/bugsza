@@ -66,7 +66,8 @@ const FEATURES = [
   {
     icon: Users,
     title: 'Collaboration Hub',
-    body: 'Bringing together entrepreneurs, designers, engineers, business strategists, and investors.',
+    body: 'Bringing together',
+    items: ['Entrepreneurs', 'Designers', 'Engineers', 'Business strategists', 'Investors'],
   },
   {
     icon: Rocket,
@@ -76,7 +77,7 @@ const FEATURES = [
   {
     icon: HeartHandshake,
     title: 'Community Empowerment',
-    body: 'Giving local entrepreneurs access to the tools and knowledge they need to build.',
+    body: 'Giving local entrepreneurs access to the tools and knowledge they need to build their dream.',
   },
   {
     icon: Sprout,
@@ -155,7 +156,7 @@ export function InnovationCentrePage() {
 
       <section className="border-y bg-white" style={{ borderColor: `${NAVY}1A` }}>
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl">What it is</h2>
+          <h2 className="font-display text-2xl sm:text-3xl">Who are we?</h2>
           <p className="mt-4 font-body opacity-70">
             A hub where ideas are nurtured into tangible solutions — the
             bridge between raw creativity and market-ready products. A place
@@ -166,9 +167,9 @@ export function InnovationCentrePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-center font-display text-2xl sm:text-3xl">What it provides</h2>
+        <h2 className="text-center font-display text-2xl sm:text-3xl">What we provide</h2>
         <div className="mt-10 flex flex-wrap justify-center gap-6">
-          {FEATURES.map(({ icon: Icon, title, body }) => (
+          {FEATURES.map(({ icon: Icon, title, body, items }) => (
             <div
               key={title}
               className="w-full border-2 bg-white p-7 transition-transform duration-200 hover:-translate-y-1 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
@@ -182,6 +183,13 @@ export function InnovationCentrePage() {
               </span>
               <h3 className="mt-5 font-display text-lg">{title}</h3>
               <p className="mt-2 font-body text-sm opacity-70">{body}</p>
+              {items && (
+                <ul className="mt-2 font-body text-sm opacity-70">
+                  {items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

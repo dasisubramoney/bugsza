@@ -1,4 +1,4 @@
-import { Zap, Backpack, Plug, Wrench, DoorOpen } from 'lucide-react'
+import { Zap, Backpack, Plug, Wrench, DoorOpen, CloudOff } from 'lucide-react'
 import { Reveal } from '../lib/Reveal'
 
 const FEATURES = [
@@ -7,6 +7,7 @@ const FEATURES = [
   { icon: Wrench, title: 'Plug-and-play', body: 'Once installed by a BUGS approved specialist, simply plug into the matching plug socket at the gate.' },
   { icon: Plug, title: 'Recharge after use', body: 'Top up from any standard wall socket with the dedicated charger included in the box.' },
   { icon: DoorOpen, title: 'Gate and garage motors', body: 'The same unit can be used for the garage door after the specialist has installed the adaptor plug.' },
+  { icon: CloudOff, title: 'Not weather dependent', body: 'Not affected by cloudy weather.' },
 ]
 
 export function Features() {
@@ -18,7 +19,7 @@ export function Features() {
             Features
           </p>
           <h2 className="mt-3 font-display text-3xl leading-tight text-bugs-black sm:text-4xl">
-            Built to do one job, reliably.
+            Built to keep your gate operating reliably.
           </h2>
         </Reveal>
 

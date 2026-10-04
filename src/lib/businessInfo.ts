@@ -45,7 +45,7 @@ export const PRICE_DISPLAY = 'R 4,500.00'
 export const PRICE_NOTE = 'Subject to change'
 export const DELIVERY_NOTE = 'Delivery: subject to locality'
 export const CALLOUT_FEE_DISPLAY =
-  'R650/hour, based on your location. Final cost may vary with distance.'
+  'R 650/hour, based on your location. Final cost to be determined by the accredited installer.'
 // The unit price never includes installation — every mention of R4,500
 // must make that explicit, since installation is billed separately at the
 // callout rate above.

@@ -17,7 +17,7 @@ const FAQS = [
     a: 'Yes. BUGS is professionally installed, and BUGS provides the accredited installer. Installation is billed separately from the unit price — the callout fee is R650/hour, based on location. Final cost may vary depending on travel distance. After that one-time setup, it operates as a plug-and-play system for every outage thereafter.',
   },
   {
-    q: 'Can it power a garage door too?',
+    q: 'Can it power a garage door as well?',
     a: 'Yes. An additional plug is required on the garage door motor.',
   },
   {
@@ -54,9 +54,6 @@ export function FAQ() {
           <p className="font-display text-2xl uppercase tracking-widest text-bugs-orange-dark sm:text-3xl">
             FAQ
           </p>
-          <h2 className="mt-3 font-display text-xl leading-tight text-bugs-black sm:text-2xl">
-            Good questions.
-          </h2>
         </Reveal>
 
         <div className="mt-10 divide-y-2 divide-bugs-black/10">
