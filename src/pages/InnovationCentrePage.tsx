@@ -245,6 +245,12 @@ export function InnovationCentrePage() {
                     className="aspect-[4/3] w-full object-cover"
                   />
                 </picture>
+                <p
+                  className="px-4 py-3 text-center font-display text-sm text-white"
+                  style={{ backgroundColor: NAVY }}
+                >
+                  Made In Workshop
+                </p>
               </div>
             ))}
           </div>
